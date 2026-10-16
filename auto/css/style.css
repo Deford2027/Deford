@@ -103,10 +103,17 @@ svg { display: block; }
     #16161c;
 }
 
+/* Видео Kinescope в iframe растягиваем «как cover»: 16:9 по большей стороне */
+.hero__bg { container-type: size; overflow: hidden; }
 .hero__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100cqw, 177.78cqh);
+  height: max(100cqh, 56.25cqw);
+  border: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .hero__fade {
@@ -143,6 +150,7 @@ svg { display: block; }
   line-height: 1;
 }
 .logo b { font-weight: 600; color: var(--c-accent); }
+img.logo { height: auto; }
 
 .header__divider {
   width: 1px;
@@ -199,6 +207,9 @@ svg { display: block; }
   gap: calc(8 * var(--k));
   margin-left: calc(42 * var(--k));
 }
+
+/* Звёздочка-сноска у Instagram */
+.social-note { position: relative; display: flex; }
 
 /* Телефоны выпадают по клику на трубку */
 .phones { position: relative; display: flex; }
@@ -586,6 +597,15 @@ svg { display: block; }
 
 .center { display: flex; justify-content: center; margin-top: calc(40 * var(--k)); }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 /* Заглушка под фото */
 .ph {
   position: relative;
@@ -699,8 +719,22 @@ svg { display: block; }
   transition: border-color .2s;
 }
 .car-card:hover { border-color: rgba(236, 176, 41, .5); }
-.car-card__photo { aspect-ratio: 16 / 10; }
-.car-card__body { padding: calc(18 * var(--k)) calc(16 * var(--k)) calc(24 * var(--k)); }
+.car-card__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  padding: calc(12 * var(--k)) calc(12 * var(--k)) 0;
+  object-fit: contain;
+}
+.car-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: calc(18 * var(--k)) calc(16 * var(--k)) calc(24 * var(--k));
+}
+.car-card__btn { margin-top: auto; }
+.car-card .specs { margin-bottom: calc(20 * var(--k)); }
 .car-card__name {
   margin: 0 0 calc(14 * var(--k));
   font-size: calc(15 * var(--k));
@@ -716,6 +750,11 @@ svg { display: block; }
 /* ==========================================================================
    Берём на себя
    ========================================================================== */
+.care {
+  background:
+    linear-gradient(rgba(11, 11, 15, .35), rgba(11, 11, 15, .35)),
+    url("../media/care-bg.webp") center / cover no-repeat;
+}
 .care__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -837,6 +876,37 @@ svg { display: block; }
 .choice input:focus-visible + span { outline: 2px solid var(--c-gold); outline-offset: 3px; }
 
 .fields { display: grid; grid-template-columns: 1fr 1fr; gap: calc(12 * var(--k)); margin-bottom: calc(14 * var(--k)); }
+.field { display: grid; gap: calc(6 * var(--k)); }
+.field--wide { grid-column: 1 / -1; }
+.field__label { margin: 0 0 calc(2 * var(--k)); font-size: max(13px, calc(14 * var(--k))); color: var(--c-muted); }
+.quiz__step > .field__label { margin-bottom: calc(10 * var(--k)); }
+.quiz__step .options { grid-template-columns: repeat(3, 1fr); }
+
+select.input {
+  appearance: none;
+  padding-right: calc(40 * var(--k));
+  background: no-repeat right calc(14 * var(--k)) center / 12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23fff' stroke-width='1.6'/%3E%3C/svg%3E");
+  cursor: pointer;
+}
+select.input option { color: #000; }
+.input--area { height: auto; padding-top: 12px; padding-bottom: 12px; resize: vertical; line-height: 1.4; }
+
+/* Пример подбора слева и фото автомобиля в панели */
+.quiz__example {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  width: calc(200 * var(--k));
+  height: auto;
+}
+.quiz__body {
+  display: grid;
+  grid-template-columns: 1fr calc(280 * var(--k));
+  gap: calc(20 * var(--k));
+  align-items: center;
+}
+.quiz__steps { min-width: 0; }
+.quiz__car { width: 100%; height: auto; }
 
 .quiz__nav { display: flex; gap: calc(12 * var(--k)); margin-top: auto; }
 
@@ -860,7 +930,19 @@ svg { display: block; }
   padding: 0;
   list-style: none;
 }
-.slide__photo { min-height: calc(380 * var(--k)); }
+/* Галерея кейса: большое фото и четыре миниатюры */
+.gallery { display: grid; gap: calc(10 * var(--k)); align-content: start; min-width: 0; }
+.gallery__main { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.gallery__thumbs { display: grid; grid-template-columns: repeat(4, 1fr); gap: calc(10 * var(--k)); }
+.gallery__thumbs button {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  opacity: .5;
+  transition: opacity .2s, box-shadow .2s;
+}
+.gallery__thumbs button:hover { opacity: .85; }
+.gallery__thumbs button.is-active { opacity: 1; box-shadow: 0 0 0 1px var(--c-gold); }
+.gallery__thumbs img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .slider__nav {
   display: flex;
   align-items: center;
@@ -911,6 +993,11 @@ svg { display: block; }
 /* ==========================================================================
    Заявка
    ========================================================================== */
+.offer {
+  background:
+    linear-gradient(90deg, rgba(11, 11, 15, .9), rgba(11, 11, 15, .35)),
+    url("../media/offer-bg.webp") center / cover no-repeat;
+}
 .offer__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -923,10 +1010,14 @@ svg { display: block; }
 /* ==========================================================================
    Мечта
    ========================================================================== */
-.dream { padding-bottom: 0; }
 .dream .h2 { margin-bottom: calc(40 * var(--k)); }
-.dream__photo { height: calc(420 * var(--k)); }
-.dream__photo::after { width: 18%; max-width: 220px; }
+.dream__gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: calc(16 * var(--k));
+}
+.dream__gallery img { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+.dream__gallery img:first-child { grid-column: span 2; grid-row: span 2; }
 
 /* ==========================================================================
    Услуги
@@ -993,6 +1084,7 @@ svg { display: block; }
   text-transform: uppercase;
   color: rgba(255, 255, 255, .3);
 }
+.partner img { max-width: 72%; max-height: 56%; object-fit: contain; opacity: .6; }
 
 /* ==========================================================================
    Вопросы
@@ -1068,6 +1160,9 @@ svg { display: block; }
     linear-gradient(135deg, #17171d, #0e0e12);
 }
 .map__pin { width: 44px; height: 44px; fill: none; stroke: var(--c-gold); stroke-width: 1.4; }
+.map { position: relative; place-items: end; align-content: end; padding: 20px; }
+.map__frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.map__link { position: relative; background: var(--c-bg); }
 
 /* ==========================================================================
    Подвал
@@ -1105,6 +1200,8 @@ svg { display: block; }
 .footer__docs a { font-size: max(12px, calc(12 * var(--k))); color: var(--c-muted); text-decoration: underline; text-underline-offset: 3px; }
 .footer__docs a:hover { color: var(--c-text); }
 .footer__copy { margin: 0; font-size: max(12px, calc(12 * var(--k))); color: var(--c-muted); }
+.footer__legal { display: grid; gap: 8px; justify-items: end; text-align: right; }
+.footer__note { max-width: 40ch; margin: 0; font-size: max(11px, calc(11 * var(--k))); color: var(--c-muted); }
 
 .to-top {
   position: fixed;
@@ -1149,6 +1246,8 @@ html { scroll-behavior: smooth; }
   .quiz__grid { grid-template-columns: 1fr; }
   .quiz__grid .h2 { margin-bottom: calc(28 * var(--k)); }
   .quiz__panel { grid-column: 1; }
+  .quiz__example { display: none; }
+  .quiz__body { grid-template-columns: 1fr calc(200 * var(--k)); }
 
   .slide { grid-template-columns: 1fr 1fr; gap: calc(28 * var(--k)); }
 
@@ -1160,7 +1259,7 @@ html { scroll-behavior: smooth; }
 
   .contacts__grid { grid-template-columns: 1fr; }
   .contacts__card { margin: 0; }
-  .map { grid-row: 2; padding: 0; min-height: 260px; }
+  .map { grid-row: 2; padding: 16px; min-height: 320px; }
 }
 
 /* ==========================================================================
@@ -1206,11 +1305,16 @@ html { scroll-behavior: smooth; }
   .tile { font-size: 14px; gap: 8px; }
   .choice span { min-height: 48px; padding: 0 16px; border-radius: 8px; font-size: 15px; }
   .fields { grid-template-columns: 1fr; gap: 10px; }
+  .quiz__body { grid-template-columns: 1fr; }
+  .quiz__car { display: none; }
+  .quiz__step .options { grid-template-columns: 1fr; }
+  .car-card .specs { margin-bottom: 16px; }
   .quiz__nav { gap: 10px; }
   .quiz__nav .btn-gold { flex: 1; }
 
   .slide__name { font-size: 17px; }
-  .slide__photo { min-height: 220px; order: -1; }
+  .gallery { order: -1; gap: 8px; }
+  .gallery__thumbs { gap: 8px; }
   .slide__specs { gap: 4px; margin: 14px 0 24px; }
   .slider__nav { gap: 14px; }
   .slider__count { font-size: 14px; }
@@ -1220,7 +1324,7 @@ html { scroll-behavior: smooth; }
   .steps__list h3 { margin: 12px 0 10px; font-size: 16px; }
   .steps__list .muted { max-width: 34ch; margin: 0 auto; }
 
-  .dream__photo { height: 240px; }
+  .dream__gallery { grid-template-columns: repeat(2, 1fr); gap: 8px; }
 
   .service { gap: 14px; min-height: 0; padding: 18px 16px 20px; }
   .service h3 { font-size: 16px; }
@@ -1243,4 +1347,18 @@ html { scroll-behavior: smooth; }
   .footer__row { margin-top: 22px; }
   .footer__brand .header__tagline { width: auto; font-size: 11px; }
   .footer__brand .header__divider { height: 24px; margin: 0 12px; }
+  .footer__legal { justify-items: start; text-align: left; }
 }
+
+/* ==========================================================================
+   Страницы документов (политика, согласие)
+   ========================================================================== */
+.doc-header { padding: 20px 0; border-bottom: 1px solid var(--c-line); }
+.doc-header .container { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.doc-header .logo { width: 108px; }
+.doc-back { font-size: 14px; color: var(--c-muted); transition: color .2s; }
+.doc-back:hover { color: var(--c-accent); }
+.doc { max-width: 820px; }
+.doc h1 { margin: 0 0 32px; font-family: var(--f-title); font-weight: 500; font-size: clamp(28px, 4vw, 44px); line-height: 1.15; text-transform: uppercase; }
+.doc h2 { margin: 32px 0 12px; font-size: 18px; font-weight: 600; }
+.doc p { margin: 0 0 12px; font-size: 15px; line-height: 1.6; color: var(--c-muted); overflow-wrap: anywhere; }

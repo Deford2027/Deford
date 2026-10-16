@@ -63,7 +63,7 @@ document.querySelectorAll('.lead-form, .service-form').forEach((form) => {
   });
 });
 
-// Квиз из четырёх шагов
+// Квиз из четырёх шагов, как на plutosauto.ru
 const quiz = document.getElementById('quiz-form');
 if (quiz) {
   const steps = [...quiz.querySelectorAll('.quiz__step')];
@@ -75,11 +75,17 @@ if (quiz) {
   const note = document.getElementById('quiz-note');
   let current = 0;
 
+  // Годы выпуска 2000–2026
+  quiz.querySelectorAll('select[data-years]').forEach((select) => {
+    for (let year = 2000; year <= 2026; year += 1) select.add(new Option(year, year));
+  });
+
   const show = (i) => {
     current = i;
     steps.forEach((s, n) => s.classList.toggle('is-active', n === i));
-    bar.style.width = `${((i + 1) / steps.length) * 100}%`;
-    label.textContent = `Шаг ${i + 1} из ${steps.length}`;
+    const progress = steps[i].dataset.progress;
+    bar.style.width = `${progress}%`;
+    label.textContent = `${progress} % пройдено`;
     prev.hidden = i === 0;
     next.hidden = i === steps.length - 1;
     submit.hidden = i !== steps.length - 1;
@@ -87,23 +93,20 @@ if (quiz) {
   };
 
   next.addEventListener('click', () => {
-    if (!steps[current].querySelector('input:checked')) {
-      note.textContent = 'Выберите один из вариантов.';
+    if (!validate(steps[current])) {
+      note.textContent = 'Заполните обязательные поля.';
       return;
     }
     show(current + 1);
   });
   prev.addEventListener('click', () => show(current - 1));
 
-  // Выбор варианта сразу ведёт к следующему вопросу
-  steps.slice(0, -1).forEach((step, i) => {
-    step.addEventListener('change', () => setTimeout(() => show(i + 1), 250));
-  });
-
   quiz.addEventListener('submit', (e) => {
     e.preventDefault();
     fakeSubmit(steps[steps.length - 1], note);
   });
+
+  show(0);
 }
 
 // Слайдер кейсов
@@ -121,14 +124,25 @@ if (slider) {
   });
 }
 
-// Партнёры: «Показать ещё»
-const more = document.getElementById('partners-more');
-if (more) {
+// Галереи кейсов: миниатюры переключают большое фото
+document.querySelectorAll('.gallery').forEach((gallery) => {
+  const main = gallery.querySelector('.gallery__main');
+  const thumbs = [...gallery.querySelectorAll('.gallery__thumbs button')];
+  thumbs.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      main.src = btn.querySelector('img').src;
+      thumbs.forEach((b) => b.classList.toggle('is-active', b === btn));
+    });
+  });
+});
+
+// «Показать ещё» для партнёров и вопросов
+document.querySelectorAll('[data-more]').forEach((more) => {
   more.addEventListener('click', () => {
-    document.querySelectorAll('#partners .partner[hidden]').forEach((p) => { p.hidden = false; });
+    document.querySelectorAll(`${more.dataset.more}[hidden]`).forEach((item) => { item.hidden = false; });
     more.hidden = true;
   });
-}
+});
 
 // Кнопка «Наверх»
 const toTop = document.querySelector('.to-top');

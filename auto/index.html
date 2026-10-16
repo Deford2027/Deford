@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Автомобили из Европы под заказ</title>
+  <title>Премиальные и люксовые авто из Европы под заказ</title>
+  <meta name="description" content="Откройте для себя мир эксклюзивных автомобилей вместе с нами!">
+  <meta property="og:title" content="Премиальные и люксовые авто из Европы под заказ">
+  <meta property="og:description" content="Откройте для себя мир эксклюзивных автомобилей вместе с нами!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://plutosauto.ru">
+  <meta property="og:image" content="media/og-image.jpg">
+  <link rel="icon" type="image/svg+xml" href="media/favicon.svg">
+  <link rel="apple-touch-icon" href="media/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
@@ -12,13 +20,9 @@
 <body>
 
   <section class="hero">
-    <!-- Фон: видео или фото. Положите файлы в auto/media/ и раскомментируйте <video>. -->
+    <!-- Фоновое видео с сайта plutosauto.ru (Kinescope) -->
     <div class="hero__bg" aria-hidden="true">
-      <!--
-      <video class="hero__video" autoplay muted loop playsinline poster="media/hero.jpg">
-        <source src="media/hero.mp4" type="video/mp4">
-      </video>
-      -->
+      <iframe class="hero__video" src="https://kinescope.io/embed/tPEFKRXzQWWQsezK6DsbSf?autoplay=true&amp;autopause=false&amp;muted=true&amp;loop=true" title="Видео PlutosAuto" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" tabindex="-1" loading="eager"></iframe>
     </div>
     <div class="hero__fade hero__fade--top" aria-hidden="true"></div>
     <div class="hero__fade hero__fade--bottom" aria-hidden="true"></div>
@@ -26,46 +30,48 @@
     <div class="hero__inner">
       <header class="header">
         <div class="header__top">
-          <a class="header__logo" href="#" aria-label="На главную">
-            <span class="logo">AUTO<b>LOGO</b></span>
+          <a class="header__logo" href="#" aria-label="PlutosAuto — на главную">
+            <img class="logo" src="media/logo.svg" alt="PlutosAuto" width="108" height="27">
           </a>
           <span class="header__divider" aria-hidden="true"></span>
-          <p class="header__tagline">Новые автомобили под&nbsp;заказ из&nbsp;Европы</p>
+          <p class="header__tagline">Доставка новых автомобилей под&nbsp;заказ из&nbsp;Европы</p>
 
-          <a class="header__address" href="#contacts">
+          <a class="header__address" href="https://yandex.by/maps/org/plutosauto/112969842901/?indoorLevel=1&amp;ll=37.567230%2C55.790236&amp;utm_source=share&amp;z=16.63" target="_blank" rel="noopener">
             <span class="icon-circle">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10" r="2.3"/></svg>
             </span>
-            <span>Москва, улица Примерная, д.&nbsp;1, офис&nbsp;10</span>
+            <span>Ленинградский проспект, д.36, стр.39, пом.43</span>
           </a>
 
           <div class="header__social">
+            <span class="social-note">
+              <a class="icon-circle" href="https://www.instagram.com/plutos.auto/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.7" cy="7.3" r=".6"/></svg>
+              </a>
+              <span class="phones__star" aria-hidden="true">*</span>
+            </span>
+            <a class="icon-circle" href="https://t.me/PlutosAuto" target="_blank" rel="noopener" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 11.3 15.6-6.1c.8-.3 1.5.2 1.2 1.4l-2.7 12.6c-.2.9-.8 1.1-1.5.7l-4.1-3-2 1.9c-.2.2-.4.4-.8.4l.3-4.2 7.6-6.9c.3-.3-.1-.4-.5-.2l-9.4 5.9-4-1.3c-.9-.3-.9-.9.2-1.2Z"/></svg>
+            </a>
+            <a class="icon-circle" href="https://wa.me/375445158847" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4.2A8 8 0 1 1 8.4 19L4 20Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a4.5 4.5 0 0 1-2.3-2.3l.8-1-1-2L9 8.5Z"/></svg>
+            </a>
             <div class="phones">
               <button class="icon-circle phones__toggle" type="button" aria-expanded="false" aria-controls="phones-list" aria-label="Телефоны">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.4a11 11 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"/></svg>
               </button>
-              <span class="phones__star" aria-hidden="true">*</span>
               <div class="phones__list" id="phones-list" hidden>
-                <a href="tel:+70000000001"><span class="gold">Менеджер 1</span>+7 (000) 000-00-01</a>
-                <a href="tel:+70000000002"><span class="gold">Менеджер 2</span>+7 (000) 000-00-02</a>
+                <a href="tel:+79771226100"><span class="gold">Олег</span>+7 (977) 122-61-00</a>
+                <a href="tel:+79911552220"><span class="gold">Евгений</span>+7 (991) 155-22-20</a>
               </div>
             </div>
-            <a class="icon-circle" href="https://t.me/" aria-label="Telegram">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 11.3 15.6-6.1c.8-.3 1.5.2 1.2 1.4l-2.7 12.6c-.2.9-.8 1.1-1.5.7l-4.1-3-2 1.9c-.2.2-.4.4-.8.4l.3-4.2 7.6-6.9c.3-.3-.1-.4-.5-.2l-9.4 5.9-4-1.3c-.9-.3-.9-.9.2-1.2Z"/></svg>
-            </a>
-            <a class="icon-circle" href="https://wa.me/" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4.2A8 8 0 1 1 8.4 19L4 20Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a4.5 4.5 0 0 1-2.3-2.3l.8-1-1-2L9 8.5Z"/></svg>
-            </a>
-            <a class="icon-circle" href="mailto:info@example.ru" aria-label="Почта">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
-            </a>
           </div>
 
           <a class="btn-call" href="#offer">
             <span class="btn-call__title">Заказать звонок</span>
             <span class="btn-call__note">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/></svg>
-              Перезвоним в удобное время
+              Звонок в удобное время
             </span>
           </a>
 
@@ -75,9 +81,9 @@
         </div>
 
         <nav class="nav" id="nav">
-          <a href="#models">Модели</a>
-          <a href="#quiz">Подбор под заказ</a>
-          <a href="#cases">Наши кейсы</a>
+          <a href="#models">Модели авто</a>
+          <a href="#quiz">Заказать подбор</a>
+          <a href="#cases">Кейсы</a>
           <a href="#services">Услуги</a>
           <a href="#contacts">Контакты</a>
         </nav>
@@ -85,8 +91,8 @@
 
       <div class="hero__content">
         <div class="hero__text">
-          <h1 class="hero__title">Новые автомобили из&nbsp;Европы под&nbsp;ключ</h1>
-          <p class="hero__subtitle">Подбор / Индивидуальная комплектация / Доставка и&nbsp;оформление</p>
+          <h1 class="hero__title"><span class="gold">Премиальные</span><br>и <span class="gold">люксовые</span> авто<br>из&nbsp;Европы под&nbsp;заказ</h1>
+          <p class="hero__subtitle">Рестайлинг / Конфигуратор опций / Люксовые комплектации</p>
         </div>
         <a class="btn-round" href="#quiz">
           <span class="btn-round__ring" aria-hidden="true"></span>
@@ -100,15 +106,15 @@
     <!-- О компании -->
     <section class="section about" id="about">
       <div class="container">
-        <h2 class="h2">Европейский автомобиль вашей мечты <span class="gold">без лишних хлопот</span></h2>
+        <h2 class="h2">Откройте для себя мир эксклюзивных автомобилей <span class="gold">вместе с&nbsp;нами!</span></h2>
         <div class="about__grid">
           <article class="outline-card">
-            <p class="lead">Привозим новые автомобили <span class="gold">напрямую от европейских дилеров</span></p>
-            <p class="muted">Работаем с официальными салонами в нескольких странах ЕС, поэтому находим свежие модели и редкие комплектации, которых нет на российском рынке.</p>
+            <p class="lead">Мы предлагаем вам не&nbsp;просто автомобили, а&nbsp;уникальные произведения искусства, <span class="gold">доставленные прямо из&nbsp;сердца Европы.</span></p>
+            <p class="muted">Чтобы предоставить доступ к&nbsp;самым последним моделям и&nbsp;комплектациям, которые вы&nbsp;не&nbsp;найдёте в&nbsp;российских автосалонах, мы&nbsp;открыли представительства в&nbsp;Германии и&nbsp;Польше.</p>
           </article>
           <article class="outline-card">
-            <p class="lead">Каждый автомобиль собираем <span class="gold">под конкретного владельца</span></p>
-            <p class="muted">Подбираем цвет, салон и пакеты опций, считаем итоговую стоимость с доставкой и пошлинами заранее и сопровождаем сделку на каждом этапе.</p>
+            <p class="lead">Для наших клиентов важно отразить индивидуальность и&nbsp;<span class="gold">стать владельцем автомобиля мечты.</span></p>
+            <p class="muted">Предложим лучшие решения современного авторынка Европы. Покупка авто по&nbsp;параллельному импорту&nbsp;— решение для тех, кто оценит преимущество до&nbsp;30% и&nbsp;прозрачность каждого этапа покупки.</p>
           </article>
         </div>
       </div>
@@ -117,84 +123,87 @@
     <!-- Модели -->
     <section class="section models" id="models">
       <div class="container">
-        <h2 class="h2">Популярные модели <span class="gold">у наших клиентов</span></h2>
-        <p class="section-sub">Примеры автомобилей, которые мы уже привозили. Найдём любую другую модель под ваш запрос.</p>
+        <h2 class="h2">Модели, которые заказывают <span class="gold">чаще всего</span></h2>
+        <p class="section-sub">Оперативный подбор новых авто, под индивидуальный запрос.</p>
         <div class="models__grid">
           <article class="car-card">
-            <div class="ph car-card__photo"></div>
+            <img class="car-card__photo" src="media/model-porsche-cayenne.webp" alt="Porsche Cayenne" width="760" height="408" loading="lazy">
             <div class="car-card__body">
-              <h3 class="car-card__name">Audi Q8 55 TFSI</h3>
+              <h3 class="car-card__name">Porsche Cayenne</h3>
               <dl class="specs">
-                <div><dt>Объём</dt><dd>2 995 см³</dd></div>
-                <div><dt>Пробег</dt><dd>15 км</dd></div>
-                <div><dt>Топливо</dt><dd>Бензин</dd></div>
-                <div><dt>Мощность</dt><dd>340 л.с.</dd></div>
+                <div><dt>Объём</dt><dd>3 996 см³</dd></div>
+                <div><dt>Пробег</dt><dd>600 км</dd></div>
+                <div><dt>Тип топлива</dt><dd>Бензин</dd></div>
+                <div><dt>Мощность</dt><dd>474 л.с.</dd></div>
               </dl>
+              <a class="btn-outline car-card__btn" href="#offer">Связаться с менеджером</a>
             </div>
           </article>
           <article class="car-card">
-            <div class="ph car-card__photo"></div>
+            <img class="car-card__photo" src="media/model-porsche-911.webp" alt="Porsche 911" width="632" height="280" loading="lazy">
             <div class="car-card__body">
-              <h3 class="car-card__name">BMW M8 Gran Coupe</h3>
+              <h3 class="car-card__name">Porsche 911</h3>
+              <dl class="specs">
+                <div><dt>Объём</dt><dd>3 745 см³</dd></div>
+                <div><dt>Пробег</dt><dd>50 км</dd></div>
+                <div><dt>Тип топлива</dt><dd>Бензин</dd></div>
+                <div><dt>Мощность</dt><dd>900 л.с.</dd></div>
+              </dl>
+              <a class="btn-outline car-card__btn" href="#offer">Связаться с менеджером</a>
+            </div>
+          </article>
+          <article class="car-card">
+            <img class="car-card__photo" src="media/model-bmw-x5m.webp" alt="BMW X5 M Competition" width="571" height="381" loading="lazy">
+            <div class="car-card__body">
+              <h3 class="car-card__name">BMW X5 M Competition</h3>
               <dl class="specs">
                 <div><dt>Объём</dt><dd>4 395 см³</dd></div>
-                <div><dt>Пробег</dt><dd>40 км</dd></div>
-                <div><dt>Топливо</dt><dd>Бензин</dd></div>
+                <div><dt>Пробег</dt><dd>30 048 км</dd></div>
+                <div><dt>Тип топлива</dt><dd>Бензин</dd></div>
                 <div><dt>Мощность</dt><dd>625 л.с.</dd></div>
               </dl>
+              <a class="btn-outline car-card__btn" href="#offer">Связаться с менеджером</a>
             </div>
           </article>
           <article class="car-card">
-            <div class="ph car-card__photo"></div>
+            <img class="car-card__photo" src="media/model-mercedes-g63.webp" alt="Mercedes-Benz G 63" width="502" height="289" loading="lazy">
             <div class="car-card__body">
-              <h3 class="car-card__name">Mercedes-Benz S 580</h3>
+              <h3 class="car-card__name">Mercedes-Benz G 63</h3>
               <dl class="specs">
                 <div><dt>Объём</dt><dd>3 982 см³</dd></div>
-                <div><dt>Пробег</dt><dd>120 км</dd></div>
-                <div><dt>Топливо</dt><dd>Бензин</dd></div>
-                <div><dt>Мощность</dt><dd>503 л.с.</dd></div>
+                <div><dt>Пробег</dt><dd>96 500 км</dd></div>
+                <div><dt>Тип топлива</dt><dd>Бензин</dd></div>
+                <div><dt>Мощность</dt><dd>585 л.с.</dd></div>
               </dl>
+              <a class="btn-outline car-card__btn" href="#offer">Связаться с менеджером</a>
             </div>
           </article>
           <article class="car-card">
-            <div class="ph car-card__photo"></div>
+            <img class="car-card__photo" src="media/model-range-rover.webp" alt="Land Rover Range Rover" width="474" height="282" loading="lazy">
             <div class="car-card__body">
-              <h3 class="car-card__name">Porsche Taycan 4S</h3>
+              <h3 class="car-card__name">Land Rover Range Rover</h3>
               <dl class="specs">
-                <div><dt>Батарея</dt><dd>93 кВт·ч</dd></div>
+                <div><dt>Объём</dt><dd>2 997 см³</dd></div>
+                <div><dt>Пробег</dt><dd>29 839 км</dd></div>
+                <div><dt>Тип топлива</dt><dd>Дизель</dd></div>
+                <div><dt>Мощность</dt><dd>566 л.с.</dd></div>
+              </dl>
+              <a class="btn-outline car-card__btn" href="#offer">Связаться с менеджером</a>
+            </div>
+          </article>
+          <article class="car-card">
+            <img class="car-card__photo" src="media/model-mercedes-v-class.webp" alt="Mercedes-Benz V class" width="567" height="359" loading="lazy">
+            <div class="car-card__body">
+              <h3 class="car-card__name">Mercedes-Benz V class</h3>
+              <dl class="specs">
+                <div><dt>Объём</dt><dd>1 950 см³</dd></div>
                 <div><dt>Пробег</dt><dd>10 км</dd></div>
-                <div><dt>Топливо</dt><dd>Электро</dd></div>
-                <div><dt>Мощность</dt><dd>530 л.с.</dd></div>
+                <div><dt>Тип топлива</dt><dd>Дизель</dd></div>
+                <div><dt>Мощность</dt><dd>190 л.с.</dd></div>
               </dl>
+              <a class="btn-outline car-card__btn" href="#offer">Связаться с менеджером</a>
             </div>
           </article>
-          <article class="car-card">
-            <div class="ph car-card__photo"></div>
-            <div class="car-card__body">
-              <h3 class="car-card__name">Range Rover Sport P400</h3>
-              <dl class="specs">
-                <div><dt>Объём</dt><dd>2 996 см³</dd></div>
-                <div><dt>Пробег</dt><dd>2 300 км</dd></div>
-                <div><dt>Топливо</dt><dd>Бензин</dd></div>
-                <div><dt>Мощность</dt><dd>400 л.с.</dd></div>
-              </dl>
-            </div>
-          </article>
-          <article class="car-card">
-            <div class="ph car-card__photo"></div>
-            <div class="car-card__body">
-              <h3 class="car-card__name">Volvo XC90 B5</h3>
-              <dl class="specs">
-                <div><dt>Объём</dt><dd>1 969 см³</dd></div>
-                <div><dt>Пробег</dt><dd>5 км</dd></div>
-                <div><dt>Топливо</dt><dd>Дизель</dd></div>
-                <div><dt>Мощность</dt><dd>235 л.с.</dd></div>
-              </dl>
-            </div>
-          </article>
-        </div>
-        <div class="center">
-          <a class="btn-outline" href="#quiz">Подобрать свою модель</a>
         </div>
       </div>
     </section>
@@ -202,19 +211,19 @@
     <!-- Берём на себя -->
     <section class="section care">
       <div class="container care__grid">
-        <h2 class="h2 h2--light">Все юридические и&nbsp;технические вопросы решаем&nbsp;сами</h2>
+        <h2 class="h2 h2--light">Берем на себя все юридические и&nbsp;технические нюансы</h2>
         <ul class="care__list">
           <li class="outline-row">
             <svg class="outline-row__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-            <span>Подбираем автомобиль по&nbsp;вашим параметрам</span>
+            <span>Экспертный подбор по&nbsp;вашим пожеланиям</span>
           </li>
           <li class="outline-row">
             <svg class="outline-row__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4 4V20.5H7z"/><path d="M14 3.5v4h4M9.5 12h6M9.5 15.5h6"/></svg>
-            <span>Подписываем договор, когда автомобиль найден и&nbsp;условия согласованы</span>
+            <span>Договор только после подбора авто и&nbsp;согласования условий</span>
           </li>
           <li class="outline-row">
-            <svg class="outline-row__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>
-            <span>Доставляем, растаможиваем и&nbsp;оформляем документы под&nbsp;ключ</span>
+            <svg class="outline-row__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="16.5" r="4"/><circle cx="7.5" cy="16.5" r="1"/><path d="m10.4 13.6 9.1-9.1M16 8l2.5 2.5M13.5 10.5 15.5 12.5"/></svg>
+            <span>Доставка, таможенная очистка, сертификация «под&nbsp;ключ»</span>
           </li>
         </ul>
       </div>
@@ -223,60 +232,89 @@
     <!-- Квиз -->
     <section class="section quiz" id="quiz">
       <div class="container quiz__grid">
-        <h2 class="h2 h2--light">Подберём автомобиль <span class="gold">по важным для вас критериям</span></h2>
+        <h2 class="h2 h2--light">Подберем автомобиль <span class="gold">по&nbsp;важным для вас параметрам</span></h2>
+
+        <img class="quiz__example" src="media/quiz-example.webp" alt="Пример подбора: карточка автомобиля в мессенджере" width="500" height="760" loading="lazy">
 
         <form class="quiz__panel" id="quiz-form" novalidate>
-          <p class="quiz__lead"><span class="gold">Ответьте на четыре вопроса</span> — менеджер подготовит варианты и свяжется с вами</p>
+          <p class="quiz__lead"><span class="gold">Ответьте на вопросы</span> и&nbsp;в&nbsp;ближайшее время менеджер свяжется с&nbsp;вами, чтобы предложить оптимальное решение с&nbsp;учетом ваших пожеланий</p>
           <div class="progress" aria-hidden="true">
             <div class="progress__bar" id="quiz-bar"></div>
-            <span class="progress__label" id="quiz-label">Шаг 1 из 4</span>
+            <span class="progress__label" id="quiz-label">30 % пройдено</span>
           </div>
 
-          <fieldset class="quiz__step is-active" data-step="1">
-            <legend>Какой тип кузова вам нужен?</legend>
-            <div class="options options--tiles">
-              <label class="tile"><input type="radio" name="body" value="Седан" id="q-body-1"><span class="ph tile__img"></span><span>Седан</span></label>
-              <label class="tile"><input type="radio" name="body" value="Кроссовер" id="q-body-2"><span class="ph tile__img"></span><span>Кроссовер</span></label>
-              <label class="tile"><input type="radio" name="body" value="Купе" id="q-body-3"><span class="ph tile__img"></span><span>Купе</span></label>
-              <label class="tile"><input type="radio" name="body" value="Минивэн" id="q-body-4"><span class="ph tile__img"></span><span>Минивэн</span></label>
-            </div>
-          </fieldset>
+          <div class="quiz__body">
+            <div class="quiz__steps">
+              <fieldset class="quiz__step is-active" data-step="1" data-progress="30">
+                <legend class="visually-hidden">Шаг 1: марка, год и цена</legend>
+                <div class="fields">
+                  <label class="field field--wide"><span class="field__label">1. Марка и модель</span>
+                    <input class="input" type="text" name="model" id="q-model" placeholder="Марка и модель" required></label>
+                  <label class="field"><span class="field__label">Год выпуска от</span>
+                    <select class="input" name="year_from" id="q-year-from" data-years><option value="">от</option></select></label>
+                  <label class="field"><span class="field__label">Год выпуска до</span>
+                    <select class="input" name="year_to" id="q-year-to" data-years><option value="">до</option></select></label>
+                  <label class="field"><span class="field__label">Цена от</span>
+                    <input class="input" type="text" name="price_from" id="q-price-from" placeholder="от" inputmode="numeric"></label>
+                  <label class="field"><span class="field__label">Цена до</span>
+                    <input class="input" type="text" name="price_to" id="q-price-to" placeholder="До" inputmode="numeric"></label>
+                </div>
+              </fieldset>
 
-          <fieldset class="quiz__step" data-step="2">
-            <legend>На какой бюджет рассчитываете?</legend>
-            <div class="options">
-              <label class="choice"><input type="radio" name="budget" value="до 8 млн" id="q-budget-1"><span>До 8 млн ₽</span></label>
-              <label class="choice"><input type="radio" name="budget" value="8–15 млн" id="q-budget-2"><span>8–15 млн ₽</span></label>
-              <label class="choice"><input type="radio" name="budget" value="15–25 млн" id="q-budget-3"><span>15–25 млн ₽</span></label>
-              <label class="choice"><input type="radio" name="budget" value="более 25 млн" id="q-budget-4"><span>Более 25 млн ₽</span></label>
-            </div>
-          </fieldset>
+              <fieldset class="quiz__step" data-step="2" data-progress="50">
+                <legend class="visually-hidden">Шаг 2: двигатель и пробег</legend>
+                <div class="fields">
+                  <label class="field"><span class="field__label">2. Тип топлива</span>
+                    <select class="input" name="fuel" id="q-fuel">
+                      <option value="">Тип топлива</option>
+                      <option>Электро</option>
+                      <option>Бензин</option>
+                      <option>Дизель</option>
+                      <option>Гибрид</option>
+                    </select></label>
+                  <label class="field"><span class="field__label">Объем двигателя</span>
+                    <input class="input" type="text" name="engine" id="q-engine" placeholder="Объем двигателя, л" inputmode="decimal"></label>
+                </div>
+                <p class="field__label">Выберите пробег</p>
+                <div class="options">
+                  <label class="choice"><input type="radio" name="mileage" value="Без пробега" id="q-mileage-1"><span>Без пробега</span></label>
+                  <label class="choice"><input type="radio" name="mileage" value="до 5000 км" id="q-mileage-2"><span>до 5000 км</span></label>
+                  <label class="choice"><input type="radio" name="mileage" value="более 5000 км" id="q-mileage-3"><span>более 5000 км</span></label>
+                </div>
+              </fieldset>
 
-          <fieldset class="quiz__step" data-step="3">
-            <legend>Когда планируете покупку?</legend>
-            <div class="options">
-              <label class="choice"><input type="radio" name="when" value="в течение месяца" id="q-when-1"><span>В течение месяца</span></label>
-              <label class="choice"><input type="radio" name="when" value="через 1–3 месяца" id="q-when-2"><span>Через 1–3 месяца</span></label>
-              <label class="choice"><input type="radio" name="when" value="через полгода" id="q-when-3"><span>Через полгода</span></label>
-              <label class="choice"><input type="radio" name="when" value="пока присматриваюсь" id="q-when-4"><span>Пока присматриваюсь</span></label>
-            </div>
-          </fieldset>
+              <fieldset class="quiz__step" data-step="3" data-progress="80">
+                <legend class="visually-hidden">Шаг 3: цвет и пожелания</legend>
+                <div class="fields">
+                  <label class="field"><span class="field__label">3. Цвет кузова</span>
+                    <input class="input" type="text" name="body_color" id="q-body-color"></label>
+                  <label class="field"><span class="field__label">Цвет салона</span>
+                    <input class="input" type="text" name="interior_color" id="q-interior-color"></label>
+                  <label class="field field--wide"><span class="field__label">Сообщите нам дополнительные параметры для подбора авто</span>
+                    <textarea class="input input--area" name="params" id="q-params" rows="2"></textarea></label>
+                </div>
+              </fieldset>
 
-          <fieldset class="quiz__step" data-step="4">
-            <legend>Куда прислать подборку?</legend>
-            <div class="fields">
-              <input class="input" type="text" name="name" id="q-name" placeholder="Ваше имя" autocomplete="name" required>
-              <input class="input" type="tel" name="phone" id="q-phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+              <fieldset class="quiz__step" data-step="4" data-progress="100">
+                <legend class="visually-hidden">Шаг 4: контакты</legend>
+                <div class="fields">
+                  <input class="input" type="text" name="name" id="q-name" placeholder="Ваше имя" autocomplete="name" required>
+                  <input class="input" type="tel" name="phone" id="q-phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
+                  <textarea class="input input--area field--wide" name="wishes" id="q-wishes" rows="3" placeholder="Дополнительные пожелания"></textarea>
+                </div>
+                <label class="consent"><input type="checkbox" id="q-consent" required> Я&nbsp;согласен с&nbsp;<a href="policy.html">политикой конфиденциальности</a></label>
+              </fieldset>
             </div>
-            <label class="consent"><input type="checkbox" id="q-consent" required> Согласен с <a href="#">политикой конфиденциальности</a></label>
-          </fieldset>
+
+            <img class="quiz__car" src="media/quiz-car.webp" alt="" width="900" height="618" loading="lazy">
+          </div>
 
           <p class="form-note" id="quiz-note" role="status"></p>
 
           <div class="quiz__nav">
             <button class="btn-ghost" type="button" id="quiz-prev" hidden>Назад</button>
             <button class="btn-gold" type="button" id="quiz-next">Далее</button>
-            <button class="btn-gold" type="submit" id="quiz-submit" hidden>Получить подборку</button>
+            <button class="btn-gold" type="submit" id="quiz-submit" hidden>Отправить</button>
           </div>
         </form>
       </div>
@@ -285,59 +323,161 @@
     <!-- Кейсы -->
     <section class="section cases" id="cases">
       <div class="container">
-        <h2 class="h2">Более 150 автомобилей<br>уже у&nbsp;новых владельцев</h2>
+        <h2 class="h2">150+ авто из&nbsp;Европы уже у&nbsp;своих новых владельцев</h2>
         <div class="slider" id="cases-slider">
           <article class="slide is-active">
             <div class="slide__text">
-              <h3 class="slide__name">Audi RS 6 Avant</h3>
-              <p class="muted">Универсал с характером суперкара: V8 с двумя турбинами, полный привод quattro и вместительный багажник для всей семьи.</p>
+              <h3 class="slide__name">Mercedes-Benz V300</h3>
+              <p class="muted">Машина для удобных деловых или семейных поездок на&nbsp;природу для отдыха.</p>
               <ul class="slide__specs muted">
-                <li>Кузов: универсал</li>
-                <li>Год выпуска: 2025</li>
-                <li>Пробег: 0 км</li>
-                <li>Коробка: автомат</li>
-                <li>Мощность: 600 л.с.</li>
-                <li>Объём двигателя: 3 996 см³</li>
-              </ul>
-              <a class="btn-outline" href="#offer">Хочу похожий</a>
-            </div>
-            <div class="ph slide__photo"></div>
-          </article>
-          <article class="slide">
-            <div class="slide__text">
-              <h3 class="slide__name">Mercedes-Benz GLE 450</h3>
-              <p class="muted">Комфортный кроссовер для города и трассы с пневмоподвеской и максимальным пакетом ассистентов водителя.</p>
-              <ul class="slide__specs muted">
-                <li>Кузов: кроссовер</li>
-                <li>Год выпуска: 2025</li>
-                <li>Пробег: 30 км</li>
-                <li>Коробка: автомат</li>
-                <li>Мощность: 381 л.с.</li>
-                <li>Объём двигателя: 2 999 см³</li>
-              </ul>
-              <a class="btn-outline" href="#offer">Хочу похожий</a>
-            </div>
-            <div class="ph slide__photo"></div>
-          </article>
-          <article class="slide">
-            <div class="slide__text">
-              <h3 class="slide__name">Porsche 911 Carrera S</h3>
-              <p class="muted">Индивидуальная комплектация: спортивный выхлоп, керамические тормоза и салон в редком цвете по заказу клиента.</p>
-              <ul class="slide__specs muted">
-                <li>Кузов: купе</li>
+                <li>Категория: Минивен</li>
                 <li>Год выпуска: 2024</li>
-                <li>Пробег: 15 км</li>
-                <li>Коробка: робот PDK</li>
-                <li>Мощность: 480 л.с.</li>
-                <li>Объём двигателя: 2 981 см³</li>
+                <li>Пробег: 10 км</li>
+                <li>Коробка передач: Автоматическая</li>
+                <li>Мощность двигателя: 237 л.с.</li>
+                <li>Объем двигателя: 1950 см³</li>
+                <li>Тип топлива: Дизель</li>
               </ul>
-              <a class="btn-outline" href="#offer">Хочу похожий</a>
+              <a class="btn-outline" href="#offer">Заказать похожую</a>
             </div>
-            <div class="ph slide__photo"></div>
+            <div class="gallery">
+              <img class="gallery__main" src="media/case-v300-1.jpg" alt="Mercedes-Benz V300" loading="lazy">
+              <div class="gallery__thumbs">
+                <button type="button" class="is-active" aria-label="Фото 1"><img src="media/case-v300-1.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 2"><img src="media/case-v300-2.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 3"><img src="media/case-v300-3.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 4"><img src="media/case-v300-4.jpg" alt="" loading="lazy"></button>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="slide__text">
+              <h3 class="slide__name">Audi RS5</h3>
+              <p class="muted">Оснащенный 2,9-литровым двигателем TFSI V6 с&nbsp;двойным турбонаддувом мощностью 450&nbsp;л.с.</p>
+              <ul class="slide__specs muted">
+                <li>Категория: Седан</li>
+                <li>Год выпуска: 2024</li>
+                <li>Пробег: 0 км</li>
+                <li>Коробка передач: Автоматическая</li>
+                <li>Мощность двигателя: 450 л.с.</li>
+                <li>Объем двигателя: 2894 см³</li>
+                <li>Тип топлива: Бензин</li>
+              </ul>
+              <a class="btn-outline" href="#offer">Заказать похожую</a>
+            </div>
+            <div class="gallery">
+              <img class="gallery__main" src="media/case-rs5-1.jpg" alt="Audi RS5" loading="lazy">
+              <div class="gallery__thumbs">
+                <button type="button" class="is-active" aria-label="Фото 1"><img src="media/case-rs5-1.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 2"><img src="media/case-rs5-2.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 3"><img src="media/case-rs5-3.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 4"><img src="media/case-rs5-4.jpg" alt="" loading="lazy"></button>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="slide__text">
+              <h3 class="slide__name">BMW X5 40d</h3>
+              <p class="muted">Превосходство по&nbsp;всем направлениям: автомобили BMW X5 заявляют о&nbsp;своем превосходстве благодаря мощным пропорциям.</p>
+              <ul class="slide__specs muted">
+                <li>Категория: Внедорожник</li>
+                <li>Год выпуска: 2021</li>
+                <li>Пробег: 40 000 км</li>
+                <li>Коробка передач: Автоматическая</li>
+                <li>Мощность двигателя: 340 л.с.</li>
+                <li>Объем двигателя: 2993 см³</li>
+                <li>Тип топлива: Дизель</li>
+              </ul>
+              <a class="btn-outline" href="#offer">Заказать похожую</a>
+            </div>
+            <div class="gallery">
+              <img class="gallery__main" src="media/case-x5-40d-1.jpg" alt="BMW X5 40d" loading="lazy">
+              <div class="gallery__thumbs">
+                <button type="button" class="is-active" aria-label="Фото 1"><img src="media/case-x5-40d-1.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 2"><img src="media/case-x5-40d-2.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 3"><img src="media/case-x5-40d-3.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 4"><img src="media/case-x5-40d-4.jpg" alt="" loading="lazy"></button>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="slide__text">
+              <h3 class="slide__name">BMW X6 M60i</h3>
+              <p class="muted">BMW X6 отличается уникальным внешним видом и&nbsp;спортивной динамичностью благодаря мощному двигателю.</p>
+              <ul class="slide__specs muted">
+                <li>Категория: Внедорожник</li>
+                <li>Год выпуска: 2024</li>
+                <li>Пробег: 0 км</li>
+                <li>Коробка передач: Автоматическая</li>
+                <li>Мощность двигателя: 625 л.с.</li>
+                <li>Объем двигателя: 4395 см³</li>
+                <li>Тип топлива: Бензин</li>
+              </ul>
+              <a class="btn-outline" href="#offer">Заказать похожую</a>
+            </div>
+            <div class="gallery">
+              <img class="gallery__main" src="media/case-x6-m60i-1.jpg" alt="BMW X6 M60i" loading="lazy">
+              <div class="gallery__thumbs">
+                <button type="button" class="is-active" aria-label="Фото 1"><img src="media/case-x6-m60i-1.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 2"><img src="media/case-x6-m60i-2.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 3"><img src="media/case-x6-m60i-3.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 4"><img src="media/case-x6-m60i-4.jpg" alt="" loading="lazy"></button>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="slide__text">
+              <h3 class="slide__name">BMW X7 40d</h3>
+              <p class="muted">BMW X7 представляет собой элегантное сочетание индивидуальности и&nbsp;солидности.</p>
+              <ul class="slide__specs muted">
+                <li>Категория: Внедорожник</li>
+                <li>Год выпуска: 2021</li>
+                <li>Пробег: 45 000 км</li>
+                <li>Коробка передач: Автоматическая</li>
+                <li>Мощность двигателя: 352 л.с.</li>
+                <li>Двигатель: 2993 см³</li>
+                <li>Тип топлива: Дизель</li>
+              </ul>
+              <a class="btn-outline" href="#offer">Заказать похожую</a>
+            </div>
+            <div class="gallery">
+              <img class="gallery__main" src="media/case-x7-40d-1.jpg" alt="BMW X7 40d" loading="lazy">
+              <div class="gallery__thumbs">
+                <button type="button" class="is-active" aria-label="Фото 1"><img src="media/case-x7-40d-1.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 2"><img src="media/case-x7-40d-2.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 3"><img src="media/case-x7-40d-3.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 4"><img src="media/case-x7-40d-4.jpg" alt="" loading="lazy"></button>
+              </div>
+            </div>
+          </article>
+          <article class="slide">
+            <div class="slide__text">
+              <h3 class="slide__name">BMW X5 M Competition</h3>
+              <p class="muted">Превосходство по&nbsp;всем направлениям: автомобили BMW X5 заявляют о&nbsp;своем превосходстве благодаря мощным пропорциям.</p>
+              <ul class="slide__specs muted">
+                <li>Категория: Внедорожник</li>
+                <li>Год выпуска: 2023</li>
+                <li>Пробег: 15 км</li>
+                <li>Коробка передач: Автоматическая</li>
+                <li>Мощность двигателя: 625 л.с.</li>
+                <li>Объем двигателя: 4395 см³</li>
+                <li>Тип топлива: Бензин</li>
+              </ul>
+              <a class="btn-outline" href="#offer">Заказать похожую</a>
+            </div>
+            <div class="gallery">
+              <img class="gallery__main" src="media/case-x5m-competition-1.jpg" alt="BMW X5 M Competition" loading="lazy">
+              <div class="gallery__thumbs">
+                <button type="button" class="is-active" aria-label="Фото 1"><img src="media/case-x5m-competition-1.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 2"><img src="media/case-x5m-competition-2.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 3"><img src="media/case-x5m-competition-3.jpg" alt="" loading="lazy"></button>
+                <button type="button" aria-label="Фото 4"><img src="media/case-x5m-competition-4.jpg" alt="" loading="lazy"></button>
+              </div>
+            </div>
           </article>
           <div class="slider__nav">
             <button class="arrow" type="button" data-dir="-1" aria-label="Предыдущий автомобиль"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5 8 12l7 7"/></svg></button>
-            <span class="slider__count" id="cases-count">1 / 3</span>
+            <span class="slider__count" id="cases-count">1 / 6</span>
             <button class="arrow" type="button" data-dir="1" aria-label="Следующий автомобиль"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
           </div>
         </div>
@@ -347,27 +487,27 @@
     <!-- Этапы -->
     <section class="section steps">
       <div class="container">
-        <h2 class="h2">Как мы привозим<br>автомобиль под&nbsp;ключ</h2>
+        <h2 class="h2">Заказать новое авто из&nbsp;Европы «под&nbsp;ключ» легко</h2>
         <ol class="steps__list">
           <li>
             <span class="steps__num">1</span>
-            <h3>Подбор и&nbsp;договор</h3>
-            <p class="muted">Обсуждаем бюджет и пожелания, предлагаем несколько вариантов и фиксируем условия в договоре.</p>
+            <h3>Подбор авто и&nbsp;заключение договора</h3>
+            <p class="muted">Подберём автомобиль в&nbsp;соответствии с&nbsp;вашим бюджетом и&nbsp;предпочтениями, предложим варианты и&nbsp;альтернативы.</p>
           </li>
           <li>
             <span class="steps__num">2</span>
             <h3>Предоплата и&nbsp;бронь</h3>
-            <p class="muted">Вносите аванс, и мы бронируем автомобиль у дилера. Размер аванса зависит от условий сделки.</p>
+            <p class="muted">Внесение авансового платежа от&nbsp;10% до&nbsp;70% стоимости автомобиля в&nbsp;зависимости от&nbsp;условий сделки.</p>
           </li>
           <li>
             <span class="steps__num">3</span>
-            <h3>Покупка и&nbsp;доставка</h3>
-            <p class="muted">Выкупаем автомобиль, везём его в Россию, проходим таможню и оформляем ЭПТС.</p>
+            <h3>Сопровождение сделки</h3>
+            <p class="muted">Покупка автомобиля, организация доставки, проведение таможенной очистки в&nbsp;соответствии с&nbsp;законодательством и&nbsp;по&nbsp;получение ЭПТС.</p>
           </li>
           <li>
             <span class="steps__num">4</span>
-            <h3>Передача владельцу</h3>
-            <p class="muted">Вы осматриваете автомобиль, вносите остаток суммы и подписываете акт приёма-передачи.</p>
+            <h3>Передача авто</h3>
+            <p class="muted">По&nbsp;завершении осмотра и&nbsp;оплаты подписывается акт приема-передачи.</p>
           </li>
         </ol>
       </div>
@@ -376,12 +516,12 @@
     <!-- Заявка -->
     <section class="section offer" id="offer">
       <div class="container offer__grid">
-        <h2 class="h2">Выгодные условия по&nbsp;цене и&nbsp;срокам доставки</h2>
+        <h2 class="h2">Предлагаем привлекательные условия по&nbsp;стоимости и&nbsp;срокам доставки</h2>
         <form class="lead-form" novalidate>
           <input class="input" type="text" name="name" id="offer-name" placeholder="Ваше имя" autocomplete="name" required>
           <input class="input" type="tel" name="phone" id="offer-phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
-          <label class="consent"><input type="checkbox" id="offer-consent" required> Согласен с <a href="#">политикой конфиденциальности</a></label>
-          <button class="btn-gold" type="submit">Рассчитать стоимость</button>
+          <label class="consent"><input type="checkbox" id="offer-consent" required> Я&nbsp;согласен с&nbsp;<a href="policy.html">политикой конфиденциальности</a></label>
+          <button class="btn-gold" type="submit">Отправить заявку</button>
           <p class="form-note" role="status"></p>
         </form>
       </div>
@@ -390,9 +530,19 @@
     <!-- Мечта -->
     <section class="section dream">
       <div class="container">
-        <h2 class="h2 h2--light">Совсем скоро вы сядете<br>за руль <span class="gold">автомобиля мечты</span></h2>
+        <h2 class="h2 h2--light">Совсем скоро вы познакомитесь<br><span class="gold">с&nbsp;авто вашей мечты</span></h2>
+        <div class="dream__gallery">
+          <img src="media/dream-1.jpg" alt="BMW X5 спереди" width="964" height="621" loading="lazy">
+          <img src="media/dream-2.jpg" alt="BMW X5 сбоку" width="452" height="294" loading="lazy">
+          <img src="media/dream-3.jpg" alt="Руль BMW" width="453" height="294" loading="lazy">
+          <img src="media/dream-4.jpg" alt="Колесо BMW" width="453" height="295" loading="lazy">
+          <img src="media/dream-5.jpg" alt="Сиденья BMW" width="452" height="295" loading="lazy">
+          <img src="media/dream-6.jpg" alt="Дверь BMW изнутри" width="466" height="272" loading="lazy">
+          <img src="media/dream-7.jpg" alt="Салон BMW" width="466" height="272" loading="lazy">
+          <img src="media/dream-8.jpg" alt="BMW X5 сзади" width="452" height="272" loading="lazy">
+          <img src="media/dream-9.jpg" alt="Мультимедиа BMW" width="453" height="272" loading="lazy">
+        </div>
       </div>
-      <div class="ph dream__photo"></div>
     </section>
 
     <!-- Услуги -->
@@ -401,35 +551,35 @@
         <h2 class="h2 h2--light">Наши услуги</h2>
         <div class="services__grid">
           <article class="service">
-            <h3>Подбор автомобиля</h3>
-            <p class="muted">Новые и редкие модели, единичные заказы и целые партии.</p>
+            <h3>Подбор авто</h3>
+            <p class="muted">Любые объемы закупки. Сложные авто под&nbsp;индивидуальный запрос.</p>
           </article>
           <article class="service">
             <h3>Таможня</h3>
-            <p class="muted">Растаможка по актуальным правилам без переплат.</p>
+            <p class="muted">Выгодная таможенная очистка с&nbsp;учетом тонкостей законодательства.</p>
           </article>
           <article class="service">
-            <h3>Оплата</h3>
-            <p class="muted">Платежи в евро, долларах или юанях по выгодному курсу.</p>
+            <h3>Платежи</h3>
+            <p class="muted">Оплаты с&nbsp;выгодной конвертацией в&nbsp;EUR, USD, CNY.</p>
           </article>
           <article class="service">
-            <h3>Логистика</h3>
-            <p class="muted">Доставка автовозом или контейнером со страховкой груза.</p>
+            <h3>Доставка</h3>
+            <p class="muted">Собственный логистический сервис и&nbsp;опытные специалисты.</p>
           </article>
           <article class="service">
             <h3>Сертификация</h3>
-            <p class="muted">СБКТС и ЭПТС, чтобы машину можно было сразу поставить на учёт.</p>
+            <p class="muted">Ускоренная легализация авто в&nbsp;РФ.</p>
           </article>
           <article class="service">
-            <h3>Лизинг</h3>
-            <p class="muted">Подберём лизинговую программу для компаний и ИП.</p>
+            <h3>Варианты оплаты</h3>
+            <p class="muted">Помощь в&nbsp;выборе лучших лизинговых условий.</p>
           </article>
           <form class="service-form" novalidate>
-            <p class="service-form__title">Личный менеджер ответит на&nbsp;все вопросы</p>
+            <p class="service-form__title">Персональный менеджер ответит на&nbsp;все вопросы</p>
             <input class="input input--dark" type="text" name="name" id="svc-name" placeholder="Ваше имя" autocomplete="name" required>
             <input class="input input--dark" type="tel" name="phone" id="svc-phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
-            <label class="consent consent--dark"><input type="checkbox" id="svc-consent" required> Согласен с <a href="#">политикой конфиденциальности</a></label>
-            <button class="btn-dark" type="submit">Задать вопрос</button>
+            <label class="consent consent--dark"><input type="checkbox" id="svc-consent" required> Я&nbsp;согласен с&nbsp;<a href="policy.html">политикой конфиденциальности</a></label>
+            <button class="btn-dark" type="submit">Отправить заявку</button>
             <p class="form-note" role="status"></p>
           </form>
         </div>
@@ -441,50 +591,117 @@
       <div class="container">
         <h2 class="h2">Партнёры</h2>
         <ul class="partners__grid" id="partners">
-          <li class="partner">Логотип партнёра</li>
-          <li class="partner">Логотип партнёра</li>
-          <li class="partner">Логотип партнёра</li>
-          <li class="partner">Логотип партнёра</li>
-          <li class="partner">Логотип партнёра</li>
-          <li class="partner">Логотип партнёра</li>
-          <li class="partner">Логотип партнёра</li>
-          <li class="partner">Логотип партнёра</li>
-          <li class="partner" hidden>Логотип партнёра</li>
-          <li class="partner" hidden>Логотип партнёра</li>
-          <li class="partner" hidden>Логотип партнёра</li>
-          <li class="partner" hidden>Логотип партнёра</li>
+          <li class="partner"><img src="media/partner-01.png" alt="Автодом" loading="lazy"></li>
+          <li class="partner"><img src="media/partner-02.png" alt="Major" loading="lazy"></li>
+          <li class="partner"><img src="media/partner-03.png" alt="Борисхоф" loading="lazy"></li>
+          <li class="partner"><img src="media/partner-04.png" alt="Рольф" loading="lazy"></li>
+          <li class="partner"><img src="media/partner-05.png" alt="Avilon" loading="lazy"></li>
+          <li class="partner"><img src="media/partner-06.png" alt="Европлан" loading="lazy"></li>
+          <li class="partner"><img src="media/partner-07.png" alt="Солт" loading="lazy"></li>
+          <li class="partner"><img src="media/partner-08.png" alt="Директ Лизинг" loading="lazy"></li>
+          <li class="partner" hidden><img src="media/partner-09.png" alt="Ресо Лизинг" loading="lazy"></li>
+          <li class="partner" hidden><img src="media/partner-10.png" alt="Альфа Лизинг" loading="lazy"></li>
+          <li class="partner" hidden><img src="media/partner-11.png" alt="Эволюция" loading="lazy"></li>
+          <li class="partner" hidden><img src="media/partner-12.png" alt="ВТБ Лизинг" loading="lazy"></li>
+          <li class="partner" hidden><img src="media/partner-13.png" alt="Совкомбанк Лизинг" loading="lazy"></li>
+          <li class="partner" hidden><img src="media/partner-14.png" alt="Интерлизинг" loading="lazy"></li>
+          <li class="partner" hidden><img src="media/partner-15.png" alt="Газпромбанк Лизинг" loading="lazy"></li>
+          <li class="partner" hidden><img src="media/partner-16.png" alt="Carcade" loading="lazy"></li>
         </ul>
         <div class="center">
-          <button class="btn-outline" type="button" id="partners-more">Показать ещё</button>
+          <button class="btn-outline" type="button" data-more="#partners .partner">Показать ещё</button>
         </div>
       </div>
     </section>
 
     <!-- Вопросы -->
-    <section class="section faq">
+    <section class="section faq" id="faq">
       <div class="container">
-        <h2 class="h2">Частые вопросы</h2>
-        <div class="faq__list">
+        <h2 class="h2">Часто задаваемые вопросы</h2>
+        <div class="faq__list" id="faq-list">
           <details class="faq__item">
-            <summary>Кто может оформить заказ?</summary>
-            <p class="muted">Частные лица, индивидуальные предприниматели и компании. Для юрлиц подготовим полный пакет закрывающих документов.</p>
+            <summary>Кто может подать заявку?</summary>
+            <p class="muted">Мы сотрудничаем с&nbsp;юридическими и&nbsp;физическими лицами (автомобиль должен быть не&nbsp;старше 5&nbsp;лет и&nbsp;не&nbsp;иметь истории ДТП).</p>
           </details>
           <details class="faq__item">
-            <summary>Какие гарантии вы даёте?</summary>
-            <p class="muted">Все условия, сроки и стоимость закреплены в договоре. Вы получаете отчёт на каждом этапе: от брони у дилера до прохождения таможни.</p>
+            <summary>Ответственность компании и&nbsp;гарантии?</summary>
+            <p class="muted">Несем ответственность за&nbsp;сделку и&nbsp;гарантируем реальный пробег автомобиля, юридическую чистоту, отсутствие проблем при прохождении таможни и&nbsp;при постановке на&nbsp;учёт, а&nbsp;также доставку в&nbsp;заявленном состоянии.</p>
           </details>
           <details class="faq__item">
-            <summary>Что входит в итоговую стоимость?</summary>
-            <p class="muted">Цена автомобиля, доставка, таможенные платежи, утилизационный сбор, сертификация и наша комиссия. Расчёт присылаем до подписания договора.</p>
+            <summary>Что входит в&nbsp;стоимость?</summary>
+            <p class="muted">Стоимость автомобиля включает в&nbsp;себя цену автомобиля в&nbsp;стране покупки, доставку по&nbsp;согласованным в&nbsp;договоре условиям, таможенные сборы и&nbsp;пошлину, утилизационный сбор, стоимость наших услуг и&nbsp;расходы на&nbsp;подготовку документов в&nbsp;РФ (СБКТС, ЭПТС).</p>
           </details>
           <details class="faq__item">
-            <summary>Сколько ждать автомобиль?</summary>
-            <p class="muted">Автомобиль из наличия у дилера приезжает в среднем за 4–6 недель. Заводской заказ с индивидуальной комплектацией занимает больше времени.</p>
+            <summary>Сроки доставки?</summary>
+            <p class="muted">Сроки доставки из&nbsp;Европы&nbsp;— от&nbsp;3&nbsp;до&nbsp;4&nbsp;недель;<br>Сроки доставки оговариваются до&nbsp;момента оформления заказа машины. В&nbsp;зависимости от&nbsp;страны отправления, готовности авто к&nbsp;отгрузке или проблем с&nbsp;автовозом, сроки могут измениться, но&nbsp;мы&nbsp;всегда предупредим вас об&nbsp;этом.</p>
           </details>
           <details class="faq__item">
-            <summary>Как автомобиль доставляют в Россию?</summary>
-            <p class="muted">Автовозом или в закрытом контейнере, на выбор клиента. Груз застрахован на всём пути.</p>
+            <summary>Как доставляются автомобили в&nbsp;РФ?</summary>
+            <p class="muted">Мы&nbsp;выбираем наиболее оптимальные способы доставки, среди которых автовозы и&nbsp;контейнерные перевозки по&nbsp;морю.</p>
           </details>
+          <details class="faq__item" hidden>
+            <summary>Цена автомобиля может меняться за&nbsp;время доставки?</summary>
+            <p class="muted">Цена на&nbsp;автомобиль не&nbsp;меняется после заключения договора. Специалист компании делает максимально точную калькуляцию перед заказом машины, учитывая все возможные скидки, доставку и&nbsp;таможенное оформление. Цена может измениться только в&nbsp;случаях несвоевременной оплаты какого-либо из&nbsp;этапов и&nbsp;изменения законодательства государства, касающиеся таможенного оформления, либо изменения ставок утилизационного сбора, которые поставщик не&nbsp;смог предусмотреть в&nbsp;условии договора.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Как оплачивается машина и&nbsp;расходы по&nbsp;ней?</summary>
+            <p class="muted">Вы&nbsp;можете оплатить все этапы удобным для вас способом, например, наличными в&nbsp;валюте или по&nbsp;выставленному счёту. Оплачиваете заранее согласованную сумму авансового платежа, перед передачей автомобиля при поставке&nbsp;— оставшуюся сумму.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Как долго вы&nbsp;будете выбирать для меня машину?</summary>
+            <p class="muted">Наши специалисты готовы предложить вам лучшие варианты в&nbsp;течение 1&nbsp;рабочего дня в&nbsp;соответствии с&nbsp;вашими пожеланиями и&nbsp;желаемым бюджетом до&nbsp;момента оформления заказа. Мы&nbsp;поможем выбрать комплектацию и&nbsp;сравнить различные варианты машин.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Переживаю за&nbsp;перевод денег, они дойдут?</summary>
+            <p class="muted">Не&nbsp;стоит переживать, у&nbsp;нас установлены партнёрские отношения с&nbsp;проверенными автохаусами, с&nbsp;которыми мы&nbsp;имеем договорные обязательства и&nbsp;обширный опыт сотрудничества в&nbsp;течение многих лет.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Откуда вы&nbsp;поставляете автомобили?</summary>
+            <p class="muted">Мы&nbsp;поставляем автомобили премиум-сегмента из&nbsp;Европы. Благодаря долгому сотрудничеству с&nbsp;дилерскими центрами, у&nbsp;нас есть доступ к&nbsp;эксклюзивным автомобилям по&nbsp;конкурентным ценам.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Есть&nbsp;ли возможность продажи с&nbsp;НДС или без него?</summary>
+            <p class="muted">Да, есть возможность продажи с&nbsp;НДС и&nbsp;без НДС.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Какие дополнительные услуги вы&nbsp;предлагаете?</summary>
+            <p class="muted">Помощь в&nbsp;выборе лизинговой компании с&nbsp;оптимальными условиями, детейлинг автомобиля, а&nbsp;также любые сложные решения по&nbsp;дополнениям комплектации у&nbsp;наших ТОП тюнинг-партнёров.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Где и&nbsp;как я&nbsp;получу свой автомобиль?</summary>
+            <p class="muted">После предпродажной подготовки машина доставляется на&nbsp;эвакуаторе на&nbsp;наш склад в&nbsp;Москве, где вы&nbsp;можете получить свой заказ. По&nbsp;запросу возможна доставка в&nbsp;другой город.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Что такое параллельный импорт?</summary>
+            <p class="muted">Параллельный импорт&nbsp;— идёт одновременно с&nbsp;официальными поставками через дистрибьюторов, поэтому называется параллельным. Товары, ввезенные таким образом, имеют все необходимые сертификаты качества и&nbsp;лицензии производителя. Они ввозятся легально, проходят таможенный контроль и&nbsp;не&nbsp;являются контрабандой и&nbsp;контрафактом.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Для каких марок разрешен параллельный импорт?</summary>
+            <p class="muted">Список марок, для которых разрешен параллельный импорт, был утвержден Минпромторгом весной 2022&nbsp;года. В&nbsp;него вошли автобренды, которые ушли из&nbsp;России или приостановили деятельность. Среди популярных марок в&nbsp;списке значатся: Volkswagen, Skoda, Toyota, Renault, Nissan, Mitsubishi, Subaru, Suzuki, Honda, а&nbsp;также ряд премиальных брендов: BMW (и&nbsp;Mini), Audi, Mercedes-Benz (и&nbsp;Smart), Volvo, Land Rover, Jaguar, Lexus, Infinity, Porsche, Tesla, Acura, Bentley, Maserati, Ferrari, Rolls-Royce и&nbsp;др.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Занимаетесь&nbsp;ли вы&nbsp;постановкой на&nbsp;учет ЭПТС?</summary>
+            <p class="muted">Да, при желании клиента возможна постановка на&nbsp;учет ЭПТС.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Какие документы мне нужны для постановки на&nbsp;учет?</summary>
+            <p class="muted">Для постановки на&nbsp;учет вам потребуется следующий пакет документов:<br>— ЭПТС (электронный паспорт транспортного средства)<br>— Полис ОСАГО<br>— Договор купли-продажи<br>— Тех. осмотр (для б/у автомобилей)</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Как и&nbsp;где происходит таможня автомобилей?</summary>
+            <p class="muted">Для каждого автомобиля мы&nbsp;просчитываем наиболее выгодный вариант таможни в&nbsp;зависимости от&nbsp;страны вывоза, возраста автомобиля, его цены и&nbsp;объема двигателя. Таможня автомобилей проходит в&nbsp;России, либо в&nbsp;Беларуси. Вне зависимости от&nbsp;места, где таможится автомобиль, мы&nbsp;берем решение всех вопросов на&nbsp;себя и&nbsp;передаем автомобиль клиенту с&nbsp;полным пакетом документов.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Как мне оплатить утилизационный сбор?</summary>
+            <p class="muted">Стоимость всех наших автомобилей учитывает утилизационный сбор.</p>
+          </details>
+          <details class="faq__item" hidden>
+            <summary>Какой утилизационный сбор мне нужно заплатить?</summary>
+            <p class="muted">Если процесс растаможки проходит в&nbsp;РФ&nbsp;— утиль на&nbsp;таможне оплачивается во&nbsp;время растаможки со&nbsp;всеми платежами&nbsp;— он&nbsp;может быть и&nbsp;льготным, и&nbsp;коммерческим.<br>Если растаможка через РБ, то&nbsp;после 01.10.2024 года важным условием является то, что авто должно быть растаможено в&nbsp;РБ более 12&nbsp;месяцев, тогда при 3000&nbsp;л и&nbsp;одном авто за&nbsp;365 (366) дней можно оплатить льготный утиль. Менее года растаможки&nbsp;— утиль будет коммерческим, даже объем двигателя до&nbsp;3000&nbsp;л и&nbsp;первый авто.</p>
+          </details>
+        </div>
+        <div class="center">
+          <button class="btn-outline" type="button" data-more="#faq-list .faq__item">Загрузить ещё</button>
         </div>
       </div>
     </section>
@@ -495,16 +712,16 @@
         <div class="contacts__card">
           <h2 class="h2 contacts__title">Контакты</h2>
           <dl class="contacts__list">
-            <div><dt>Почта</dt><dd><a href="mailto:info@example.ru">info@example.ru</a></dd></div>
-            <div><dt>Адрес</dt><dd>Москва, улица Примерная, д.&nbsp;1, офис&nbsp;10</dd></div>
-            <div><dt>Отдел продаж</dt><dd><a href="tel:+70000000001">+7 (000) 000-00-01</a></dd></div>
-            <div><dt>Логистика</dt><dd><a href="tel:+70000000002">+7 (000) 000-00-02</a></dd></div>
-            <div><dt>Бухгалтерия</dt><dd><a href="tel:+70000000003">+7 (000) 000-00-03</a></dd></div>
+            <div><dt>Почта</dt><dd><a href="mailto:BLR_opt@mail.ru">BLR_opt@mail.ru</a><br><a href="mailto:Zhenya-vechorko@yandex.ru">Zhenya-vechorko@yandex.ru</a></dd></div>
+            <div><dt>Адрес</dt><dd>Ленинградский проспект, д.36, стр.39, пом.43</dd></div>
+            <div><dt>Отдел продаж</dt><dd><a href="tel:+79771226100">+7 977 122 61 00</a> Олег<br><a href="tel:+79911552220">+7 991 155 22 20</a> Евгений</dd></div>
+            <div><dt>Отдел логистики</dt><dd><a href="tel:+375447760607">+375 44 776 06 07</a> Евгений</dd></div>
+            <div><dt>Бухгалтерия</dt><dd><a href="tel:+79259245094">+7 925 924 50 94</a> Татьяна</dd></div>
           </dl>
         </div>
         <div class="map">
-          <svg class="map__pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10" r="2.3"/></svg>
-          <a class="btn-outline" href="https://yandex.ru/maps/" target="_blank" rel="noopener">Открыть на карте</a>
+          <iframe class="map__frame" src="https://yandex.ru/map-widget/v1/?um=constructor%3A3d7a7063e48e9a0d9a7c60b342bd669f8c92e3ae83b348bcb0c81e1f31f3bcda&amp;source=constructor" title="PlutosAuto на Яндекс Картах" loading="lazy"></iframe>
+          <a class="btn-outline map__link" href="https://yandex.by/maps/org/plutosauto/112969842901/?indoorLevel=1&amp;ll=37.567230%2C55.790236&amp;utm_source=share&amp;z=16.63" target="_blank" rel="noopener">Открыть на карте</a>
         </div>
       </div>
     </section>
@@ -513,31 +730,37 @@
   <footer class="footer">
     <div class="container">
       <nav class="footer__nav">
-        <a href="#models">Модели</a>
-        <a href="#quiz">Подбор под заказ</a>
-        <a href="#cases">Наши кейсы</a>
+        <a href="#models">Модели авто</a>
+        <a href="#quiz">Заказать подбор</a>
+        <a href="#cases">Кейсы</a>
         <a href="#services">Услуги</a>
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="footer__row">
         <div class="footer__brand">
-          <span class="logo">AUTO<b>LOGO</b></span>
+          <img class="logo" src="media/logo.svg" alt="PlutosAuto" width="108" height="27">
           <span class="header__divider" aria-hidden="true"></span>
-          <p class="header__tagline">Новые автомобили под&nbsp;заказ из&nbsp;Европы</p>
+          <p class="header__tagline">Доставка новых автомобилей под&nbsp;заказ из&nbsp;Европы</p>
         </div>
         <div class="footer__social">
-          <a class="icon-circle" href="https://t.me/" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 11.3 15.6-6.1c.8-.3 1.5.2 1.2 1.4l-2.7 12.6c-.2.9-.8 1.1-1.5.7l-4.1-3-2 1.9c-.2.2-.4.4-.8.4l.3-4.2 7.6-6.9c.3-.3-.1-.4-.5-.2l-9.4 5.9-4-1.3c-.9-.3-.9-.9.2-1.2Z"/></svg></a>
-          <a class="icon-circle" href="https://wa.me/" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4.2A8 8 0 1 1 8.4 19L4 20Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a4.5 4.5 0 0 1-2.3-2.3l.8-1-1-2L9 8.5Z"/></svg></a>
-          <a class="icon-circle" href="https://vk.com/" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5h3c.5 3 2 5 3.5 5.5v-5.5h3v3c1.5-.3 3-1.8 3.5-3h3c-.5 2-2 3.8-3.5 4.5 1.5.7 3.2 2.3 4 4.5h-3.2c-.7-1.5-2.2-2.8-3.8-3v3h-.5c-5 0-8.5-3.5-9-9Z"/></svg></a>
+          <a class="icon-circle" href="https://www.instagram.com/plutos.auto/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.7" cy="7.3" r=".6"/></svg></a>
+          <a class="icon-circle" href="https://www.facebook.com/plutosauto/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 20.5v-7h2.4l.4-2.8h-2.8V9c0-.8.3-1.4 1.4-1.4h1.5V5.1a19 19 0 0 0-2.2-.1c-2.2 0-3.6 1.3-3.6 3.7v2H8.2v2.8h2.4v7"/></svg></a>
+          <a class="icon-circle" href="https://t.me/PlutosAuto" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 11.3 15.6-6.1c.8-.3 1.5.2 1.2 1.4l-2.7 12.6c-.2.9-.8 1.1-1.5.7l-4.1-3-2 1.9c-.2.2-.4.4-.8.4l.3-4.2 7.6-6.9c.3-.3-.1-.4-.5-.2l-9.4 5.9-4-1.3c-.9-.3-.9-.9.2-1.2Z"/></svg></a>
+          <a class="icon-circle" href="https://wa.me/375445158847" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4.2A8 8 0 1 1 8.4 19L4 20Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a4.5 4.5 0 0 1-2.3-2.3l.8-1-1-2L9 8.5Z"/></svg></a>
+          <a class="icon-circle" href="https://vk.com/plutosauto" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5h3c.5 3 2 5 3.5 5.5v-5.5h3v3c1.5-.3 3-1.8 3.5-3h3c-.5 2-2 3.8-3.5 4.5 1.5.7 3.2 2.3 4 4.5h-3.2c-.7-1.5-2.2-2.8-3.8-3v3h-.5c-5 0-8.5-3.5-9-9Z"/></svg></a>
+          <a class="icon-circle" href="https://www.youtube.com/@PlutosAuto" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3.5"/><path d="m10.5 9.5 4 2.5-4 2.5z"/></svg></a>
         </div>
       </div>
       <div class="footer__row footer__row--bottom">
         <ul class="footer__docs">
-          <li><a href="#">Договор поставки</a></li>
-          <li><a href="#">Политика конфиденциальности</a></li>
-          <li><a href="#">Пользовательское соглашение</a></li>
+          <li><a href="https://docs.google.com/document/d/1BumylgvEzWF3K7JBcJbH869PnSRhnKR2KRWaIG4pfbc/edit?usp=sharing" target="_blank" rel="noopener">Типовой договор поставки</a></li>
+          <li><a href="policy.html">Политика конфиденциальности</a></li>
+          <li><a href="agree.html">Пользовательское соглашение</a></li>
         </ul>
-        <p class="footer__copy">© 2026 AUTOLOGO</p>
+        <div class="footer__legal">
+          <p class="footer__note">*Признан экстремистской организацией и&nbsp;запрещен на&nbsp;территории РФ.</p>
+          <p class="footer__copy">© PlutosAuto</p>
+        </div>
       </div>
     </div>
   </footer>
