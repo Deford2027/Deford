@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Автомобили из Европы под заказ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <section class="hero">
+    <!-- Фон: видео или фото. Положите файлы в auto/media/ и раскомментируйте <video>. -->
+    <div class="hero__bg" aria-hidden="true">
+      <!--
+      <video class="hero__video" autoplay muted loop playsinline poster="media/hero.jpg">
+        <source src="media/hero.mp4" type="video/mp4">
+      </video>
+      -->
+    </div>
+    <div class="hero__fade hero__fade--top" aria-hidden="true"></div>
+    <div class="hero__fade hero__fade--bottom" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <header class="header">
+        <div class="header__top">
+          <a class="header__logo" href="#" aria-label="На главную">
+            <span class="logo">AUTO<b>LOGO</b></span>
+          </a>
+          <span class="header__divider" aria-hidden="true"></span>
+          <p class="header__tagline">Новые автомобили под&nbsp;заказ из&nbsp;Европы</p>
+
+          <a class="header__address" href="#contacts">
+            <span class="icon-circle">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21Z"/><circle cx="12" cy="10" r="2.3"/></svg>
+            </span>
+            <span>Москва, улица Примерная, д.&nbsp;1, офис&nbsp;10</span>
+          </a>
+
+          <div class="header__social">
+            <div class="phones">
+              <button class="icon-circle phones__toggle" type="button" aria-expanded="false" aria-controls="phones-list" aria-label="Телефоны">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.4 4-2 1.4a11 11 0 0 0 6.5 6.5l1.4-2 4 1.4v2.6a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"/></svg>
+              </button>
+              <span class="phones__star" aria-hidden="true">*</span>
+              <div class="phones__list" id="phones-list" hidden>
+                <a href="tel:+70000000001"><span class="gold">Менеджер 1</span>+7 (000) 000-00-01</a>
+                <a href="tel:+70000000002"><span class="gold">Менеджер 2</span>+7 (000) 000-00-02</a>
+              </div>
+            </div>
+            <a class="icon-circle" href="https://t.me/" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3.5 11.3 15.6-6.1c.8-.3 1.5.2 1.2 1.4l-2.7 12.6c-.2.9-.8 1.1-1.5.7l-4.1-3-2 1.9c-.2.2-.4.4-.8.4l.3-4.2 7.6-6.9c.3-.3-.1-.4-.5-.2l-9.4 5.9-4-1.3c-.9-.3-.9-.9.2-1.2Z"/></svg>
+            </a>
+            <a class="icon-circle" href="https://wa.me/" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-4.2A8 8 0 1 1 8.4 19L4 20Z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a4.5 4.5 0 0 1-2.3-2.3l.8-1-1-2L9 8.5Z"/></svg>
+            </a>
+            <a class="icon-circle" href="mailto:info@example.ru" aria-label="Почта">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+            </a>
+          </div>
+
+          <a class="btn-call" href="#callback">
+            <span class="btn-call__title">Заказать звонок</span>
+            <span class="btn-call__note">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/></svg>
+              Перезвоним в удобное время
+            </span>
+          </a>
+
+          <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+
+        <nav class="nav" id="nav">
+          <a href="#models">Модели</a>
+          <a href="#selection">Подбор под заказ</a>
+          <a href="#cases">Наши кейсы</a>
+          <a href="#services">Услуги</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+      </header>
+
+      <div class="hero__content">
+        <div class="hero__text">
+          <h1 class="hero__title">Новые автомобили из&nbsp;Европы под&nbsp;ключ</h1>
+          <p class="hero__subtitle">Подбор / Индивидуальная комплектация / Доставка и&nbsp;оформление</p>
+        </div>
+        <a class="btn-round" href="#selection">
+          <span class="btn-round__ring" aria-hidden="true"></span>
+          <span class="btn-round__text">Подобрать авто</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
