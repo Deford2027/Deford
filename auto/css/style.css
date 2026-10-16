@@ -119,7 +119,7 @@ svg { display: block; }
 .hero__fade--bottom { bottom: 0; background: linear-gradient(to top,    var(--c-bg), rgba(11, 11, 15, 0)); }
 
 .hero__inner {
-  width: calc(968 * var(--k));
+  width: min(calc(968 * var(--k)), calc(100% - 32px));
   margin: 0 auto;
   padding-top: calc(17 * var(--k));
 }
@@ -378,7 +378,7 @@ svg { display: block; }
    Сетка 960
    ========================================================================== */
 @media (max-width: 1199px) {
-  .hero__inner { width: calc(941 * var(--k)); }
+  .hero__inner { width: min(calc(941 * var(--k)), calc(100% - 32px)); }
   .hero__content { margin-top: calc(177 * var(--k)); }
 }
 
@@ -389,7 +389,7 @@ svg { display: block; }
   .hero { min-height: calc(579 * var(--k)); }
 
   .hero__inner {
-    width: calc(624 * var(--k));
+    width: min(calc(624 * var(--k)), calc(100% - 32px));
     padding-top: calc(11 * var(--k));
   }
 
@@ -442,7 +442,7 @@ svg { display: block; }
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: calc(14 * var(--k)) calc(10 * var(--k)) 0;
+    padding: calc(14 * var(--k)) max(16px, env(safe-area-inset-right, 0px)) 0 max(16px, env(safe-area-inset-left, 0px));
   }
 
   .header { position: relative; }
