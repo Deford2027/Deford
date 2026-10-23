@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Balance — тренажёрный зал, 1:1</title>
+<style>
+  @font-face { font-family: "TildaSans"; src: url("../../fonts/TildaSans-Regular.woff2") format("woff2"); font-weight: 400; }
+  @font-face { font-family: "TildaSans"; src: url("../../fonts/TildaSans-Semibold.woff2") format("woff2"); font-weight: 600; }
+
+  :root {
+    --navy: #00244b;
+    --lime: #c3e900;
+    --ink: #0f1d2e;
+    --muted: #6b7684;
+    --paper: #f7f7f4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1080px; height: 1080px; background: var(--paper); }
+  body { font-family: "TildaSans", Arial, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+  .banner { position: relative; width: 1080px; height: 1080px; overflow: hidden; background: var(--paper); }
+
+  /* Фото зала */
+  .photo {
+    position: absolute; inset: 0 0 auto 0; height: 548px;
+    background: url("assets/gym.jpg") 38% 46% / 128% auto no-repeat;
+    filter: brightness(1.06) saturate(.92);
+  }
+  .photo::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(0,20,40,.55) 0%, rgba(0,20,40,0) 26%),
+      linear-gradient(0deg, rgba(247,247,244,.0) 0%, rgba(247,247,244,0) 100%);
+  }
+
+  .logo { position: absolute; top: 52px; left: 56px; width: 184px; height: 44px; }
+
+  .tag {
+    position: absolute; top: 54px; right: 56px;
+    padding: 10px 22px; border-radius: 40px;
+    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.45);
+    backdrop-filter: blur(8px);
+    color: #fff; font-size: 24px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  }
+
+  /* Ценовой блок */
+  .price {
+    position: absolute; right: 56px; top: 384px; width: 412px;
+    padding: 32px 38px 30px;
+    background: var(--navy); color: #fff; border-radius: 28px;
+    box-shadow: 0 24px 60px rgba(0,36,75,.28);
+  }
+  .price__row { display: flex; align-items: center; justify-content: space-between; }
+  .price__old { font-size: 34px; color: rgba(255,255,255,.55); text-decoration: line-through; text-decoration-thickness: 2px; }
+  .price__badge {
+    background: var(--lime); color: var(--navy);
+    font-size: 26px; font-weight: 600; padding: 6px 16px; border-radius: 30px;
+  }
+  .price__new { margin-top: 14px; font-size: 92px; font-weight: 600; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
+  .price__per { margin-top: 10px; font-size: 30px; color: rgba(255,255,255,.75); }
+
+  /* Текст */
+  .title {
+    position: absolute; left: 56px; top: 600px; width: 520px;
+    font-size: 54px; font-weight: 600; line-height: 1.04; letter-spacing: -.01em; color: var(--navy);
+  }
+  .title span { display: block; font-size: 26px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+
+  .list { position: absolute; left: 56px; right: 56px; top: 782px; list-style: none; }
+  .list li { display: flex; align-items: center; gap: 18px; font-size: 32px; line-height: 1.2; color: var(--ink); }
+  .list li + li { margin-top: 16px; }
+  .list svg { flex: none; width: 26px; height: 26px; }
+  .list b { font-weight: 600; color: var(--navy); }
+
+  .cta {
+    position: absolute; left: 56px; bottom: 48px;
+    display: inline-flex; align-items: center; gap: 22px;
+    height: 84px; padding: 0 22px 0 40px; border-radius: 42px;
+    background: var(--navy); color: #fff; font-size: 32px; font-weight: 600;
+  }
+  .cta i {
+    display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%;
+    background: var(--lime);
+  }
+  .site { position: absolute; right: 56px; bottom: 76px; font-size: 26px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="banner">
+  <div class="photo"></div>
+
+  <img class="logo" src="assets/logo-balance.svg" alt="Balance">
+  <div class="tag">Акция</div>
+
+  <div class="price">
+    <div class="price__row">
+      <span class="price__old">56 550 ₽</span>
+      <span class="price__badge">−31%</span>
+    </div>
+    <div class="price__new">39 000 ₽</div>
+    <div class="price__per">/ год</div>
+  </div>
+
+  <h1 class="title"><span>Тренажёрный зал</span>Год тренировок в&nbsp;Balance</h1>
+
+  <ul class="list">
+    <li><svg viewBox="158.6 0 25.35 25.41"><path d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.55 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z" fill="#00244b"/></svg>Более 70 премиум-тренажёров</li>
+    <li><svg viewBox="158.6 0 25.35 25.41"><path d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.55 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z" fill="#00244b"/></svg>Панорамный вид и простор</li>
+    <li><svg viewBox="158.6 0 25.35 25.41"><path d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.55 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z" fill="#00244b"/></svg><span>Выгода <b>17 550 ₽</b> при покупке карты сегодня</span></li>
+  </ul>
+
+  <div class="cta">Забронировать карту по акции
+    <i><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="#00244b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+  </div>
+  <div class="site">balance-fit.ru</div>
+</div>
+</body>
+</html>
