@@ -4,115 +4,108 @@
 <meta charset="utf-8">
 <title>Balance — тренажёрный зал, 1:1</title>
 <style>
+  /* Фирменный шрифт — Harmonia Sans Pro Cyr (лицензионный). Если он установлен, подхватится первым;
+     иначе используется TildaSans с сайта balance-fit.ru. */
   @font-face { font-family: "TildaSans"; src: url("../../fonts/TildaSans-Regular.woff2") format("woff2"); font-weight: 400; }
   @font-face { font-family: "TildaSans"; src: url("../../fonts/TildaSans-Semibold.woff2") format("woff2"); font-weight: 600; }
 
   :root {
-    --navy: #00244b;
-    --lime: #c3e900;
-    --ink: #0f1d2e;
-    --muted: #6b7684;
-    --paper: #f7f7f4;
+    /* Палитра из брендбука Balance 2023 */
+    --black: #000000;
+    --white: #ffffff;
+    --electric-green: #c3e900; /* только для «искры» */
+    --high-blue: #28348a;
+    --red: #ff3f49;
+    --deep-blue: #00244b;
+
+    --pad: 44px;   /* поле по периметру = половина ширины «искры» */
+    --spark: 88px;
+    --r: 40px;     /* скругление модулей */
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 1080px; height: 1080px; background: var(--paper); }
-  body { font-family: "TildaSans", Arial, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  html, body { width: 1080px; height: 1080px; background: var(--black); }
+  body { font-family: "Harmonia Sans Pro Cyr", "TildaSans", Arial, sans-serif; color: var(--white); -webkit-font-smoothing: antialiased; }
 
-  .banner { position: relative; width: 1080px; height: 1080px; overflow: hidden; background: var(--paper); }
+  .banner { position: relative; width: 1080px; height: 1080px; overflow: hidden; background: var(--black); }
+  .m { position: absolute; border-radius: var(--r); overflow: hidden; }
 
-  /* Фото зала */
+  /* Модуль D — фото зала */
   .photo {
-    position: absolute; inset: 0 0 auto 0; height: 548px;
-    background: url("assets/gym.jpg") 38% 46% / 128% auto no-repeat;
-    filter: brightness(1.06) saturate(.92);
+    left: var(--pad); top: var(--pad); width: 992px; height: 420px;
+    background: url("assets/gym.jpg") 40% 48% / 118% auto no-repeat;
+    filter: contrast(.9) saturate(.85) brightness(1.04);
   }
-  .photo::after {
-    content: ""; position: absolute; inset: 0;
-    background:
-      linear-gradient(180deg, rgba(0,20,40,.55) 0%, rgba(0,20,40,0) 26%),
-      linear-gradient(0deg, rgba(247,247,244,.0) 0%, rgba(247,247,244,0) 100%);
-  }
+  .logo { position: absolute; left: 40px; bottom: 36px; width: 202px; height: 48px; }
 
-  .logo { position: absolute; top: 52px; left: 56px; width: 184px; height: 44px; }
+  /* Модуль A — текстовый, High Blue */
+  .info { left: var(--pad); top: 470px; width: 600px; height: 444px; background: var(--high-blue); padding: 38px 40px; }
+  .info h1 { font-size: 54px; font-weight: 400; line-height: 1.02; letter-spacing: -.005em; }
+  .info ul { list-style: none; margin-top: 40px; }
+  .info li { position: relative; padding-left: 34px; font-size: 29px; line-height: 1.22; }
+  .info li + li { margin-top: 18px; }
+  .info li::before { content: ""; position: absolute; left: 2px; top: 13px; width: 12px; height: 12px; border-radius: 50%; background: var(--white); }
+  .info b { font-weight: 600; }
 
-  .tag {
-    position: absolute; top: 54px; right: 56px;
-    padding: 10px 22px; border-radius: 40px;
-    background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.45);
-    backdrop-filter: blur(8px);
-    color: #fff; font-size: 24px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
-  }
+  /* Модуль B — цена, Red */
+  .price { left: 650px; top: 470px; width: 386px; height: 444px; background: var(--red); padding: 38px 36px; display: flex; flex-direction: column; }
+  .price__label { font-size: 26px; line-height: 1.2; }
+  .price__bottom { margin-top: auto; }
+  .price__old { font-size: 36px; opacity: .75; text-decoration: line-through; text-decoration-thickness: 2px; }
+  .price__new { margin-top: 6px; font-size: 78px; font-weight: 600; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
+  .price__per { margin-top: 8px; font-size: 32px; }
 
-  /* Ценовой блок */
-  .price {
-    position: absolute; right: 56px; top: 384px; width: 412px;
-    padding: 32px 38px 30px;
-    background: var(--navy); color: #fff; border-radius: 28px;
-    box-shadow: 0 24px 60px rgba(0,36,75,.28);
-  }
-  .price__row { display: flex; align-items: center; justify-content: space-between; }
-  .price__old { font-size: 34px; color: rgba(255,255,255,.55); text-decoration: line-through; text-decoration-thickness: 2px; }
-  .price__badge {
-    background: var(--lime); color: var(--navy);
-    font-size: 26px; font-weight: 600; padding: 6px 16px; border-radius: 30px;
-  }
-  .price__new { margin-top: 14px; font-size: 92px; font-weight: 600; line-height: 1; letter-spacing: -.02em; white-space: nowrap; }
-  .price__per { margin-top: 10px; font-size: 30px; color: rgba(255,255,255,.75); }
-
-  /* Текст */
-  .title {
-    position: absolute; left: 56px; top: 600px; width: 520px;
-    font-size: 54px; font-weight: 600; line-height: 1.04; letter-spacing: -.01em; color: var(--navy);
-  }
-  .title span { display: block; font-size: 26px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-
-  .list { position: absolute; left: 56px; right: 56px; top: 782px; list-style: none; }
-  .list li { display: flex; align-items: center; gap: 18px; font-size: 32px; line-height: 1.2; color: var(--ink); }
-  .list li + li { margin-top: 16px; }
-  .list svg { flex: none; width: 26px; height: 26px; }
-  .list b { font-weight: 600; color: var(--navy); }
-
+  /* Модуль — кнопка */
   .cta {
-    position: absolute; left: 56px; bottom: 48px;
-    display: inline-flex; align-items: center; gap: 22px;
-    height: 84px; padding: 0 22px 0 40px; border-radius: 42px;
-    background: var(--navy); color: #fff; font-size: 32px; font-weight: 600;
+    left: var(--pad); top: 920px; width: 992px; height: 116px; background: var(--deep-blue);
+    display: flex; align-items: center; justify-content: space-between; padding: 0 30px 0 40px;
+    font-size: 36px; font-weight: 600;
   }
-  .cta i {
-    display: grid; place-items: center; width: 54px; height: 54px; border-radius: 50%;
-    background: var(--lime);
-  }
-  .site { position: absolute; right: 56px; bottom: 76px; font-size: 26px; color: var(--muted); }
+  .cta i { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--white); }
+
+  /* Символ «искра» на пересечениях модулей */
+  .spark { position: absolute; width: var(--spark); height: var(--spark); margin: calc(var(--spark) / -2) 0 0 calc(var(--spark) / -2); }
 </style>
 </head>
 <body>
 <div class="banner">
-  <div class="photo"></div>
+  <div class="m photo"></div>
 
-  <img class="logo" src="assets/logo-balance.svg" alt="Balance">
-  <div class="tag">Акция</div>
+  <div class="m info">
+    <h1>Тренажёрный зал</h1>
+    <ul>
+      <li>Более 70 премиум-тренажёров</li>
+      <li>Панорамный вид и простор</li>
+      <li>Выгода <b>17&nbsp;550&nbsp;₽</b> при покупке карты сегодня</li>
+    </ul>
+    <!-- Монохромный белый логотип: по брендбуку, если в макете есть отдельная «искра» -->
+    <svg class="logo" viewBox="0 0 184 44" fill="#fff" aria-label="Balance">
+      <path d="M41.2702 40.01C45.3302 40.01 49.0702 36.58 49.0702 31.7C49.0702 26.55 45.6002 23.16 41.3602 23.16C35.9502 23.16 33.3802 27.41 33.3802 31.56C33.3802 35.71 35.9502 40.01 41.2702 40.01ZM52.3102 42.41H48.7502V39.52H48.6602C47.0802 41.42 44.4202 43.18 40.7702 43.18C34.9102 43.18 29.6802 38.62 29.6802 31.57C29.6802 24.89 34.5502 20.05 40.9902 20.05C44.9102 20.05 47.2102 22.13 48.7002 23.89H48.7502V20.77H52.3102V42.41Z"/>
+      <path d="M62.0903 9.89001H58.5303V42.41H62.0903V9.89001Z"/>
+      <path d="M78.4098 40.01C82.4698 40.01 86.2098 36.58 86.2098 31.7C86.2098 26.55 82.7398 23.16 78.4998 23.16C73.0898 23.16 70.5198 27.41 70.5198 31.56C70.5198 35.71 73.0898 40.01 78.4098 40.01ZM89.4498 42.41H85.8898V39.52H85.7998C84.2198 41.42 81.5598 43.18 77.9098 43.18C72.0498 43.18 66.8198 38.62 66.8198 31.57C66.8198 24.89 71.6898 20.05 78.1298 20.05C82.0498 20.05 84.3498 22.13 85.8398 23.89H85.8898V20.77H89.4498V42.41Z"/>
+      <path d="M95.6699 20.78H99.2299V23.49H99.3199C101.3 20.92 103.78 20.06 106.13 20.06C110.05 20.06 114.65 22.5 114.65 29.81V42.41H111.09V30.03C111.09 25.65 108.97 23.26 105.59 23.26C101.71 23.26 99.2299 25.88 99.2299 30.89V42.41H95.6699V20.78Z"/>
+      <path d="M140.2 26.33H136.23C135.37 24.52 133.48 23.17 130.46 23.17C126.36 23.17 122.8 25.970 122.8 31.57C122.8 36.45 126.14 40.01 130.69 40.01C134.07 40.01 135.69 38.25 136.55 36.44H140.52C139.39 39.65 136.51 43.17 130.65 43.17C123.98 43.17 119.11 38.38 119.11 31.52C119.11 25.2 123.53 20.05 130.47 20.05C136.64 20.05 139.48 23.85 140.2 26.33Z"/>
+      <path d="M147.32 29.63H161.25C160.89 26.24 158.23 23.17 154.31 23.17C150.21 23.17 147.64 26.33 147.32 29.63ZM164.99 31.3C164.99 31.71 164.94 32.38 164.9 32.61H147.28C147.28 36.54 150.89 40.02 154.94 40.02C157.51 40.02 159.09 39.07 160.48 37.4H164.58C163.14 40.11 160.12 43.18 155.02 43.18C148.17 43.18 143.57 38.03 143.57 31.3C143.57 25.34 147.76 20.06 154.3 20.06C162.15 20.1 164.99 26.56 164.99 31.3Z"/>
+      <path d="M15.4401 28.95H4.30006V39.74H16.0701C20.2201 39.74 22.1501 37.57 22.1501 34.41C22.1601 31.03 19.7701 28.95 15.4401 28.95ZM13.7701 15.81H4.30006V25.52H14.0401C17.7401 25.52 19.9901 23.49 19.9901 20.55C19.9901 17.21 17.2901 15.81 13.7701 15.81ZM0.560059 12.38H13.7701C20.1301 12.38 23.8201 15.45 23.8201 20.24C23.8201 23.81 21.4801 25.84 18.8201 26.79V26.88C23.6401 27.38 26.0301 30.76 26.0301 34.69C26.0301 40.52 21.4801 43.18 15.8001 43.18H0.560059V12.38Z"/>
+      <path d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.550 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z"/>
+    </svg>
+  </div>
 
-  <div class="price">
-    <div class="price__row">
-      <span class="price__old">56 550 ₽</span>
-      <span class="price__badge">−31%</span>
+  <div class="m price">
+    <div class="price__label">Годовая карта</div>
+    <div class="price__bottom">
+      <div class="price__old">56&nbsp;550&nbsp;₽</div>
+      <div class="price__new">39&nbsp;000&nbsp;₽</div>
+      <div class="price__per">/ год</div>
     </div>
-    <div class="price__new">39 000 ₽</div>
-    <div class="price__per">/ год</div>
   </div>
 
-  <h1 class="title"><span>Тренажёрный зал</span>Год тренировок в&nbsp;Balance</h1>
-
-  <ul class="list">
-    <li><svg viewBox="158.6 0 25.35 25.41"><path d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.55 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z" fill="#00244b"/></svg>Более 70 премиум-тренажёров</li>
-    <li><svg viewBox="158.6 0 25.35 25.41"><path d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.55 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z" fill="#00244b"/></svg>Панорамный вид и простор</li>
-    <li><svg viewBox="158.6 0 25.35 25.41"><path d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.55 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z" fill="#00244b"/></svg><span>Выгода <b>17 550 ₽</b> при покупке карты сегодня</span></li>
-  </ul>
-
-  <div class="cta">Забронировать карту по акции
-    <i><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="#00244b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+  <div class="m cta">Забронировать карту по акции
+    <i><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h13M13 6l6 6-6 6" stroke="#00244b" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
   </div>
-  <div class="site">balance-fit.ru</div>
+
+  <!-- «Искра» на пересечениях модулей; упрощённый сегмент повернут к акцентному модулю -->
+  <svg class="spark" style="left:647px; top:467px; transform: rotate(-90deg)" viewBox="158.6 0 25.35 25.41"><path fill="#c3e900" d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.55 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z"/></svg>
+  <svg class="spark" style="left:647px; top:917px" viewBox="158.6 0 25.35 25.41"><path fill="#c3e900" d="M171.36 25.41C171.36 18.45 176.98 12.81 183.92 12.79H183.95V12.62H183.92C176.98 12.6 171.36 6.96 171.36 0H171.19C171.19 6.97 165.55 12.62 158.6 12.62V12.79H171.19V25.41H171.36Z"/></svg>
 </div>
 </body>
 </html>
