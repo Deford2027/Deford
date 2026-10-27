@@ -288,7 +288,7 @@ const LS = {
   get(k, d){ try{ const v = localStorage.getItem('sp.'+k); return v==null ? d : JSON.parse(v); }catch(e){ return d; } },
   set(k, v){ try{ localStorage.setItem('sp.'+k, JSON.stringify(v)); }catch(e){} }
 };
-const S = { projects:[], tasks:[], statuses:[], team:[], logs:[], comments:[], loaded:new Set() };
+const S = { projects:[], tasks:[], statuses:[], team:[], logs:[], comments:[], settings:[], loaded:new Set() };
 const UI = {
   view: LS.get('view','week'),
   weekStart: mondayOf(new Date()),
@@ -324,6 +324,10 @@ function hue(id){ let h = 0; for(const c of String(id)) h = (h*31 + c.charCodeAt
 function initials(name){ return (name||'?').trim().split(/\s+/).slice(0,2).map(w => w[0]).join('').toUpperCase(); }
 function byId(list, id){ return list.find(x => x.id === id); }
 function toast(msg){ const t = document.getElementById('toast'); t.textContent = msg; t.hidden = false; clearTimeout(toast._t); toast._t = setTimeout(() => t.hidden = true, 3200); }
+// work after midnight but before this hour counts for the previous day (a studio-wide setting)
+function dayStartHour(){ const h = Number(byId(S.settings, 'main')?.dayStartHour); return h >= 0 && h <= 12 ? h : 0; }
+function shiftMs(){ return dayStartHour() * 3600000; }
+function workDayIso(ms){ return iso(new Date(ms - shiftMs())); }
 function logMs(l, now){ return Math.max(0, (l.end || now) - l.start); }
 function statusOf(t){ return byId(S.statuses, t.statusId); }
 function isDone(t){ const s = statusOf(t); return !!(s && s.isDone); }
@@ -369,7 +373,7 @@ async function write(fn, okMsg){
 }
 
 /* ---------- data ---------- */
-const COLS = { projects:'projects', tasks:'tasks', statuses:'statuses', team:'team', logs:'timelogs', comments:'comments' };
+const COLS = { projects:'projects', tasks:'tasks', statuses:'statuses', team:'team', logs:'timelogs', comments:'comments', settings:'settings' };
 /* ---------- backend: Supabase (one table "docs" + private bucket "files"), shaped like the collection/doc API the views use ---------- */
 const CFG = window.PLANNER_CONFIG || {};
 const sb = (window.supabase && CFG.supabaseUrl && !/ВСТАВЬТЕ/.test(CFG.supabaseUrl)) ? window.supabase.createClient(CFG.supabaseUrl, CFG.supabaseAnonKey) : null;
@@ -411,6 +415,10 @@ const sbDb = {
     },
   }; },
   doc(path){ const [col, id] = path.split('/'); return {
+    async set(data){
+      const { data: r, error } = await sb.from('docs').upsert({ collection: col, id, data, updated_at: new Date().toISOString() }).select().single();
+      if(error) fail(error); applyRow(r);
+    },
     async update(patch){
       const { data: r, error } = await sb.rpc('doc_update', { p_collection: col, p_id: id, p_patch: patch });
       if(error) fail(error); if(r && r.id) applyRow(r);
@@ -715,7 +723,10 @@ function viewProject(id){
 
 /* ---------- time report ---------- */
 function periodRange(){
-  const now = new Date();
+  const sh = shiftMs(), [a, b] = calendarRange(new Date(Date.now() - sh));
+  return [a ? a + sh : a, b === Infinity ? b : b + sh];
+}
+function calendarRange(now){
   if(UI.period === 'today'){ const s = new Date(now.getFullYear(), now.getMonth(), now.getDate()); return [s.getTime(), addDays(s,1).getTime()]; }
   if(UI.period === 'week'){ const s = mondayOf(now); return [s.getTime(), addDays(s,7).getTime()]; }
   if(UI.period === 'lastweek'){ const s = addDays(mondayOf(now),-7); return [s.getTime(), addDays(s,7).getTime()]; }
@@ -723,20 +734,21 @@ function periodRange(){
   if(UI.period === 'lastmonth'){ const s = new Date(now.getFullYear(), now.getMonth()-1, 1); return [s.getTime(), new Date(now.getFullYear(), now.getMonth(), 1).getTime()]; }
   return [0, Infinity];
 }
-// split one timer entry across calendar days (a session past midnight counts for both days)
+// split one timer entry across work days; a day runs from the studio's day-start hour to the same hour next day
 function splitByDay(l, now, into){
+  const sh = shiftMs();
   let a = l.start; const end = l.end || now;
   while(a < end){
-    const d = new Date(a), next = new Date(d.getFullYear(), d.getMonth(), d.getDate()+1).getTime();
+    const d = new Date(a - sh), next = new Date(d.getFullYear(), d.getMonth(), d.getDate()+1).getTime() + sh;
     const b = Math.min(end, next); into(iso(d), b - a); a = b;
   }
 }
 function viewDaily(){
-  const ws = UI.sumWeek || mondayOf(new Date()), now = Date.now(), today = todayIso();
+  const now = Date.now(), today = workDayIso(now), ws = UI.sumWeek || mondayOf(parseIso(today)), sh = shiftMs();
   const days = [...Array(7)].map((_,i) => addDays(ws, i)), keys = days.map(iso);
   const grid = new Map(); // personId -> {dayIso: ms}
   for(const l of S.logs){
-    if((l.end || now) < ws.getTime() || l.start >= addDays(ws,7).getTime()) continue;
+    if((l.end || now) < ws.getTime() + sh || l.start >= addDays(ws,7).getTime() + sh) continue;
     splitByDay(l, now, (k, ms) => { if(!keys.includes(k)) return; const row = grid.get(l.personId) || {}; row[k] = (row[k]||0) + ms; grid.set(l.personId, row); });
   }
   const people = [...teamSorted().map(p => p.id), ...[...grid.keys()].filter(id => !byId(S.team, id))];
@@ -759,13 +771,13 @@ function viewDaily(){
     : '<div class="notice"><p class="muted">Добавьте участников в Настройках, и здесь появятся их часы по дням.</p></div>'}`;
 }
 function viewTaskDays(){
-  const ws = UI.sumWeek || mondayOf(new Date()), now = Date.now(), today = todayIso(), yest = iso(addDays(new Date(),-1));
+  const now = Date.now(), today = workDayIso(now), ws = UI.sumWeek || mondayOf(parseIso(today)), sh = shiftMs(), yest = iso(addDays(parseIso(today),-1));
   const days = [...Array(7)].map((_,i) => addDays(ws, i)), keys = days.map(iso);
   const who = UI.taskWho ?? me() ?? '';
   const grid = new Map(); // taskId -> {dayIso: ms}
   for(const l of S.logs){
     if(who && l.personId !== who) continue;
-    if((l.end || now) < ws.getTime() || l.start >= addDays(ws,7).getTime()) continue;
+    if((l.end || now) < ws.getTime() + sh || l.start >= addDays(ws,7).getTime() + sh) continue;
     splitByDay(l, now, (k, ms) => { if(!keys.includes(k)) return; const row = grid.get(l.taskId) || {}; row[k] = (row[k]||0) + ms; grid.set(l.taskId, row); });
   }
   const colTot = Object.fromEntries(keys.map(k => [k, 0])); let all = 0;
@@ -836,6 +848,10 @@ function viewSettings(){
       ${tRows ? `<div class="slist">${tRows}</div>` : '<div class="empty">Добавьте участников студии.</div>'}
       ${readOnly?'':`<form class="addrow" id="addPerson"><input type="text" id="newPerson" placeholder="Имя участника" required><button class="btn">+ Добавить</button></form>`}
       <input type="file" id="photoIn" accept="image/*" hidden>
+    </section>
+    <section class="panel"><h3 class="sec">Рабочий день</h3>
+      <p class="muted hint">Если работаете после полуночи, время до этого часа засчитается в предыдущий день. Настройка общая для всей студии.</p>
+      <label class="srow">Новый день начинается в <select id="dayStart" ${dis}>${[0,1,2,3,4,5,6,7,8].map(h => `<option value="${h}"${h===dayStartHour()?' selected':''}>${pad(h)}:00${h?'':' (полночь)'}</option>`).join('')}</select></label>
     </section>
     <section class="panel"><h3 class="sec">Шрифт</h3>
       <p class="muted hint">Выбор сохраняется только в вашем браузере.</p>
@@ -1190,7 +1206,7 @@ main.addEventListener('click', async e => {
   else if('editProject' in ds) projectDialog(byId(S.projects, ds.editProject));
   else if('newTask' in ds) taskDialog(null, ds.newTask);
   else if('back' in ds){ UI.openProject = null; render(); }
-  else if('sumweek' in ds){ UI.sumWeek = ds.sumweek === '0' ? mondayOf(new Date()) : addDays(UI.sumWeek || mondayOf(new Date()), 7*Number(ds.sumweek)); render(); }
+  else if('sumweek' in ds){ UI.sumWeek = ds.sumweek === '0' ? mondayOf(parseIso(workDayIso(Date.now()))) : addDays(UI.sumWeek || mondayOf(parseIso(workDayIso(Date.now()))), 7*Number(ds.sumweek)); render(); }
   else if('week' in ds){ UI.weekStart = ds.week === '0' ? mondayOf(new Date()) : addDays(UI.weekStart, 7*Number(ds.week)); render(); }
   else if('tails' in ds){
     const tails = S.tasks.filter(t => t.day && t.day < todayIso() && !isDone(t));
@@ -1226,6 +1242,7 @@ main.addEventListener('change', e => {
     photoToDataUrl(f).then(url => write(() => db.doc('team/'+pid).update({ photo:url }), 'Фото сохранено')).catch(() => toast('Не получилось прочитать картинку'));
     return;
   }
+  if(t.id === 'dayStart'){ const h = Number(t.value); write(() => db.doc('settings/main').set({ ...(byId(S.settings,'main') ? (({id, ...r}) => r)(byId(S.settings,'main')) : {}), dayStartHour: h }), h ? `Время до ${pad(h)}:00 теперь идёт в предыдущий день` : 'День начинается в полночь'); return; }
   if(t.name === 'font'){ LS.set('font', t.value); applyFont(); return; }
   if(t.id === 'fProject'){ UI.fProject = t.value; LS.set('fProject', t.value); render(); }
   else if(t.id === 'fPerson'){ UI.fPerson = t.value; LS.set('fPerson', t.value); render(); }
